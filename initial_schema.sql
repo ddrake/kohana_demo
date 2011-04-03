@@ -1,7 +1,7 @@
 CREATE TABLE `albums` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(50) collate utf8_bin NOT NULL,
-  `artist` varchar(50) collate utf8_bin NOT NULL,
+  `name` varchar(100) collate utf8_bin NOT NULL,
+  `artist` varchar(100) collate utf8_bin NOT NULL,
   `genre_id` int(11) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `genre_id` (`genre_id`)
