@@ -48,7 +48,7 @@ In your application/bootstrap.php,
     	));
 
 
-- Add the following routes:
+Add the following routes:
 
     Route::set('normal', '(<controller>(/<action>(/<id>)))', array('id' => '[0-9]++'))
     ->defaults(array(
@@ -61,7 +61,7 @@ In your application/bootstrap.php,
     'controller' => 'error'
     ));
 
-- Edit the default route to the following:
+Edit the default route to the following:
 
     Route::set('default', '(<controller>(/<action>(/<id>)))')
     ->defaults(array(
