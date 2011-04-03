@@ -51,25 +51,23 @@ In your application/bootstrap.php,
 - Add the following routes:
 
     Route::set('normal', '(<controller>(/<action>(/<id>)))', array('id' => '[0-9]++'))
-    	->defaults(array(
-    		'controller' => 'album',
-    		'action'     => 'index',
-    		'id'         => NULL,
-    	));
+    ->defaults(array(
+    'controller' => 'album',
+    'action'     => 'index',
+    'id'         => NULL,
+    ));
     Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
-    	->defaults(array(
-    		'controller' => 'error'
-    	));
-
+    ->defaults(array(
+    'controller' => 'error'
+    ));
 
 - Edit the default route to the following:
 
     Route::set('default', '(<controller>(/<action>(/<id>)))')
-    	->defaults(array(
-    		'controller' => 'album',
-    		'action'     => 'index',
-    	));
-
+    ->defaults(array(
+    'controller' => 'album',
+    'action'     => 'index',
+    ));
 
 Edit application/config/auth.php setting the hash_key to a random string of your choice.
 
