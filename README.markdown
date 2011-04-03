@@ -21,8 +21,8 @@ Install the kostache v2.0.4 module: http://github.com/zombor/KOstache into modul
 Follow the instructions here for clean urls:  http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls
 
 Additionally, in your .htaccess, add the following lines:
-# Set Kohana environment to 'development' (to use custom error handler, set this to 'production').
-SetEnv KOHANA_ENV development 
+    # Set Kohana environment to 'development' (to use custom error handler, set this to 'production').
+    SetEnv KOHANA_ENV development 
 
 Delete controller/welcome.php if so desired
 
@@ -55,7 +55,6 @@ In your application/bootstrap.php,
     		'action'     => 'index',
     		'id'         => NULL,
     	));
-
     Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
     	->defaults(array(
     		'controller' => 'error'
