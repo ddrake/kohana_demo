@@ -1,6 +1,6 @@
 Kohana Demo Application
 =======================
-A basic tutorial for those who learn best from simple, working sample code and want to see a sampling of Kohana features in action
+A simple demo application for those who learn best from simple, working sample code and want to see a sampling of Kohana features in action
 
 Features
 --------
@@ -13,12 +13,12 @@ Features
 
 Installation
 ------------
-Installation Instructions (non-Git - see footnote *) 
-Download Kohana v3.1.2 http://kohanaframework.org/download
-Install Kohana v3.1.2  http://kohanaframework.org/3.1/guide/kohana/install
-Install the kostache v2.0.4 module: http://github.com/zombor/KOstache into modules/kostache/
+Installation Instructions (non-Git) - see below for Git information. 
 
-Follow the instructions here for clean urls:  http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls
+-Download [Kohana v3.1.2](http://kohanaframework.org/download)
+-Install [Kohana v3.1.2](http://kohanaframework.org/3.1/guide/kohana/install)
+-Install the [KOstache v2.0.4 module](http://github.com/zombor/KOstache) into modules/kostache/
+-Follow the instructions [here for clean urls](http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls)
 
 Additionally, in your .htaccess, add the following lines:
     # Set Kohana environment to 'development' (to use custom error handler, set this to 'production').
@@ -29,11 +29,12 @@ Delete controller/welcome.php if so desired
 Copy the files in the application directory of this project into 'application'. 
 Copy the files in the assets directory of this project into 'assets'.
 
-Copy the Kostache files from here: https://github.com/zombor/KOstache to modules/kostache
-Copy the Mustche files from here: https://github.com/bobthecow/mustache.php to modules/kostache/vendor/mustache
+Copy the [Kostache files from here](http://github.com/zombor/KOstache) to modules/kostache
+Copy the [Mustche files from here](http://github.com/bobthecow/mustache.php) to modules/kostache/vendor/mustache
 
-In your application/bootstrap.php, 
-- Enable the following modules: auth, orm, database, kostache -- it should look something like this:
+In your application/bootstrap.php
+
+Enable the following modules: auth, orm, database, kostache -- it should look something like this:
 
     Kohana::modules(array(
     	'auth'       => MODPATH.'auth',       // Basic authentication
@@ -79,16 +80,17 @@ username: administrator
 password: admin12345
 
 
-* It's simpler and better to use Git submodules, to do so, refer to: 
+It's simpler and better to use Git submodules, to do so, refer to: 
 [Kohana Git Tutorial](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
 
 If you're working in a Windows (WAMP Server) environment, you may also find these useful:
-[Tutorial for Git with Windows](http://dowdrake.com/showthread.php?400-A-nice-tutorial-for-Git-with-Windows)
+[Tutorial for Git with Windows](http://dowdrake.com/showthread.php?400-A-nice-tutorial-for-Git-with-Windows) and
 [Setting up to Help Document Kohana - Git/Win XP](http://dowdrake.com/showthread.php?401-Setting-up-to-help-document-Kohana-Git-Win-XP)
 
 See Also
 --------
-For a much more elaborate example of the capabilities of the Auth module and loads of other useful information, I would recommend [The Unofficial Kohana 3 Wiki](http://kerkness.ca/wiki/doku.php)
+For a much more elaborate example of the capabilities of the Auth module and loads of other useful information, I would recommend 
+[The Unofficial Kohana 3 Wiki](http://kerkness.ca/wiki/doku.php)
 
 Credits
 -------
