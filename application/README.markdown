@@ -89,3 +89,10 @@ If you're working in a Windows (WAMP Server) environment, you may also find thes
 
 See Also
 --------
+For a much more elaborate example of the capabilities of the Auth module and loads of other useful information, I would recommend [The Unofficial Kohana 3 Wiki](http://kerkness.ca/wiki/doku.php)
+
+Credits
+-------
+I've borrowed from several sources, but one in particular should probably be mentioned:
+[Kohana: The Swift PHP Framework](http://net.tutsplus.com/tutorials/php/kohana-the-swift-php-framework/)
+This was a Kohana 2 tutorial and its code bears almost no resemblance to that of this project, but I borrowed its simple schema and button images.
