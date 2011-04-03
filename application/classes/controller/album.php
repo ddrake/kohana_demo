@@ -20,7 +20,7 @@ class Controller_Album extends Controller_Auth
 	public function action_index()
  	{
 		$view = new View_Pages_Album_List;
-		echo $view;  // . View::factory('profiler/stats');
+		$this->response->body($view); // . View::factory('profiler/stats');
  	}
 
  	public function action_add()
@@ -41,7 +41,7 @@ class Controller_Album extends Controller_Auth
 	{
 		$view = new View_Pages_Album_Add;
 		$view->set('album',$album->as_array())->set('errors', $errors);
-		echo $view;
+		$this->response->body($view);
 	}
 	// This method can be called by action_edit
 	// or by the save action if validation fails.
@@ -49,7 +49,7 @@ class Controller_Album extends Controller_Auth
 	{
 		$view = new View_Pages_Album_Edit;
 		$view->set('album',$album->as_array())->set('errors',$errors);
-		echo $view;
+		$this->response->body($view);
 	}
 
 	public function action_save()

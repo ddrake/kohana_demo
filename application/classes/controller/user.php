@@ -29,7 +29,6 @@ class Controller_User extends Controller_Auth {
 			$auth->login(Arr::get($_POST,'username'),Arr::get($_POST,'password'));
 			if ($auth->logged_in())
 			{
-				echo 'user is ' . Debug::vars($auth->get_user()->username);
 				$this->redirect_to_albums();
 			}
 			$message = 'Login failed.  Password is case-sensitive.  Is Caps Lock on?';
@@ -43,7 +42,7 @@ class Controller_User extends Controller_Auth {
 	{
 		$view = new View_Pages_User_Login;
 		$view->set('message', $message);
-		echo $view;
+		$this->response->body($view);
 	}
 
 	public function action_logout() {
@@ -100,7 +99,7 @@ class Controller_User extends Controller_Auth {
 		$view = new View_Pages_User_Profile;
 		$view->set('user', $user->as_array())
 			 ->set('errors',$errors);
-		echo $view;
+		$this->response->body($view);
 	}
 
 	private function redirect_to_albums()
