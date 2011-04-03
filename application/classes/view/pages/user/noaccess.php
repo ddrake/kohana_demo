@@ -1,9 +1,9 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class View_Pages_Admin_Noaccess extends Kostache_Layout {
+class View_Pages_User_Noaccess extends Kostache_Layout {
 
 	public $meta_keywords = 'cool, musick';
-	public $meta_copyright = 'A list of awesome albums';
+	public $meta_copyright = 'dowdrake.com';
 
 	public $title = 'Unauthorized Access';
 	public $meta_description = '';
@@ -19,7 +19,7 @@ class View_Pages_Admin_Noaccess extends Kostache_Layout {
 	{
 		$route = Route::get('normal');
 		return array(
-			'album_list' => $route->uri(array('controller'=>'album', 'action'=>'list')),
+			'album_list' => $route->uri(array('controller'=>'album')),
 		);
 	}
 

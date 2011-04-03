@@ -61,6 +61,12 @@ class Controller_User extends Controller_Auth {
 		$this->show_profile_form();
 	}
 
+	public function action_noaccess()
+ 	{
+		$view = new View_Pages_User_Noaccess;
+		$this->response->body($view);
+ 	}
+
 	public function action_save()
 	{
 		if ($_POST)

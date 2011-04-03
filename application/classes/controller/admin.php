@@ -5,10 +5,15 @@ class Controller_Admin extends Controller_Auth
 	public $secure_actions = array();
 
 	protected function access_required() {
-		$this->action_noaccess();
+		$this->redirect_to_noaccess();
 	}
 	protected function login_required() {
-		$this->action_noaccess();
+		$this->redirect_to_noaccess();
+	}
+	private function redirect_to_noaccess()
+	{
+		$uri = Route::get('normal')->uri(array('controller'=>'user','action'=>'noaccess'));
+		$this->request->redirect($uri);
 	}
 
  	public function action_index()
@@ -105,13 +110,6 @@ class Controller_Admin extends Controller_Auth
 		$user = ORM::factory('user',$id);
 		$user->delete();
 		$this->redirect_to_list();
- 	}
-
-	public function action_noaccess()
- 	{
-		$view = new View_Pages_Admin_Noaccess;
-		$this->response->body($view);
-		exit;
  	}
 
 	private function redirect_to_list()

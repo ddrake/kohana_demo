@@ -3,7 +3,7 @@
 class View_Pages_Album_Form extends Kostache_Layout {
 
 	public $meta_keywords = 'cool, musick';
-	public $meta_copyright = 'A list of awesome albums';
+	public $meta_copyright = 'dowdrake.com';
 
 	public $title = '';
 	public $meta_description = '';
