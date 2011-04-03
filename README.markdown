@@ -1,6 +1,12 @@
 Kohana Demo Application
 =======================
-A simple demo application for those who learn best from simple, working sample code and want to see a sampling of Kohana features in action
+A simple demo application for those who learn best from simple, working sample code and want to see a sampling of Kohana features in action.
+
+For a limited time, you can try it out at this [live demo site](http://optocare.angryhosting.com/)
+admin login -> username: administrator, password: admin12345
+regular login -> username: joseph, password: ghghghghgh
+
+Feel free to add your own users and albums and edit and delete them as you choose, but out of courtesy to others, please don't remove the two preset users or change their passwords.
 
 Features
 --------
@@ -13,7 +19,7 @@ Features
 
 Installation
 ------------
-Installation Instructions (non-Git) - see below for Git information. 
+Installation Instructions (non-Git) - see below for Git information.
 
 - Download [Kohana v3.1.2](http://kohanaframework.org/download)
 - Install [Kohana v3.1.2](http://kohanaframework.org/3.1/guide/kohana/install)
@@ -22,10 +28,10 @@ Installation Instructions (non-Git) - see below for Git information.
 
 Additionally, in your .htaccess, add the following lines:
     # Set Kohana environment to 'development' (to use custom error handler, set this to 'production').
-    SetEnv KOHANA_ENV development 
+    SetEnv KOHANA_ENV development
 
 - Delete controller/welcome.php if so desired
-- Copy the files in the application directory of this project into 'application'. 
+- Copy the files in the application directory of this project into 'application'.
 - Copy the files in the assets directory of this project into 'assets'.
 - Copy the [Kostache files from here](http://github.com/zombor/KOstache) to modules/kostache
 - Copy the [Mustche files from here](http://github.com/bobthecow/mustache.php) to modules/kostache/vendor/mustache
@@ -78,7 +84,7 @@ You should be good to go.  The default admin login is:
 
 but you can add a new administrator and delete that one if you like.
 
-Installation of files is simpler and better using Git submodules, to do so, refer to: 
+Installation of files is simpler and better using Git submodules, to do so, refer to:
 [Kohana Git Tutorial](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
 
 If you're working in a Windows (WAMP Server) environment, you may also find these useful:
