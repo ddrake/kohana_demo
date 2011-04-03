@@ -1,0 +1,28 @@
+    {{%DOT-NOTATION}}
+    <div id="container">
+      <img src="assets/images/add.png" alt = "Add Button" />
+      <span class="top-link"><a href="{{links.user_add}}">Add new User</a></span>
+      <span id="user-info">Current User: {{{logged_in_user}}}</span>
+      <span class="top-link"><a href="{{links.user_logout}}">Log Out</a></span>
+      <span class="top-link"><a href="{{links.user_profile}}">Edit Profile</a></span>
+      <span class="top-link"><a href="{{links.album_list}}">Albums</a></span>
+      <table class="list" cellspacing="0">
+      <tr>
+        <td colspan="5" class="list_title">{{list_title}}</td>
+      </tr>
+      <tr>
+        <td class="headers">User Name</td>
+        <td class="headers">Email</td>
+        <td colspan='3' class="headers">Is Admin</td>
+      </tr>
+      {{#users}}
+      <tr>
+        <td class='item'>{{{username}}}</td>
+        <td class='item'>{{{email}}}</td>
+        <td class='item'>{{is_admin}}</td>
+        <td class='item'><a href="{{delete_link}}"><img src="assets/images/delete.png" alt="Delete Button" /></a></td>
+        <td class='item'><a href="{{edit_link}}"><img src="assets/images/edit.png" alt="Edit Button" /></a></td>
+      </tr>
+      {{/users}}
+      </table>
+    </div>

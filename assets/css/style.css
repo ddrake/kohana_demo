@@ -1,0 +1,156 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif ;
+	font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+
+#container {
+  margin: 5px 10px 5px 20px;
+}
+h1, h2 {
+	font-family: "Trebuchet MS",Verdana, sans-serif ;
+}
+p {
+  font-size: 14px;
+  line-height: 20px;
+}
+h1 {
+  font-size: 20px;
+  line-height: 30px;
+}
+h2 {
+  font-size: 18px;
+  line-height: 26px;
+}
+h3 {
+  font-size: 16px;
+  line-height: 23px;
+}
+a {
+	font-family: Arial, Helvetica, sans-serif ;
+	font-weight: normal;
+	font-size: 12px;
+	color: #00F;
+	vertical-align:text-top;
+}
+
+img {
+	border: 0;
+}
+
+label {
+	font-family: "Trebuchet MS", Helvetica, sans-serif ;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+input {
+	border: 1px solid #000;
+}
+
+select {
+	width:185px;
+}
+
+table.editor
+{
+	text-align: left;
+	font-weight: normal;
+	font-size: 11px;
+	color: #fff;
+	width: 280px;
+	background-color: #666;
+	border: 0px;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+table.editor td.editor_title
+{
+	background-color: #666;
+	color: #fff;
+	padding: 4px;
+	text-align: left;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+table.editor td
+{
+	padding: 4px 10px 4px 4px;
+}
+
+table.editor td div.error
+{
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: #f00;
+}
+table.list
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 11px;
+	color: #fff;
+	width: 280px;
+	background-color: #666;
+	border: 0px;
+	border-collapse: collapse;
+	border-spacing: 0px;
+  width: 500px;
+}
+
+table.list td.item
+{
+	background-color: #CCC;
+	color: #000;
+	padding: 4px;
+	text-align: left;
+	border: 1px #fff solid;
+}
+
+table.list td.list_title,table.list td.headers
+{
+	background-color: #666;
+	color: #fff;
+	padding: 4px;
+	text-align: left;
+	border-bottom: 2px #fff solid;
+}
+
+table.list td.list_title
+{
+	font-family: "Trebuchet MS",Verdana, sans-serif ;
+	font-size: 20px;
+  line-height: 24px;
+}
+
+table.list td.headers
+{
+	font-family: "Trebuchet MS",Verdana, sans-serif ;
+	font-size: 16px;
+}
+
+#user-info {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #444;
+}
+.top-link {
+  margin-right: 10px;
+}
+div.message {
+  margin: 10px;
+  padding: 10px;
+  width: 600px;
+  border: 1px solid #222;
+  background-color: #ccc;
+}
+.message hr {
+  color: #fff;
+}

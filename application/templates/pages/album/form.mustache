@@ -1,0 +1,30 @@
+{{%DOT-NOTATION}}
+<div class="validform">
+  <form id="form" name="form" autocomplete="off" method="post" action="{{links.save}}">
+    <h1>{{editor_title}}</h1>
+    <hr />
+
+    <p>
+      <label>Name</label>
+      <input type="text" name="name" value="{{& album.name}}" class="first_field" /><br />
+      {{#errors}}{{#name}}<p class="error">{{{name}}}</p>{{/name}}{{/errors}}
+    </p>
+
+    <p>
+      <label>Artist</label>
+      <input type="text" name="artist" value="{{& album.artist}}" /><br />
+      {{#errors}}{{#artist}}<p class="error">{{{artist}}}</p>{{/artist}}{{/errors}}
+    </p>
+
+    <p>
+      <label>Genre</label>
+      <select name="genre_id">
+        {{#genre_list}}<option value="{{id}}" {{#selected}}SELECTED{{/selected}} >{{name}}</option>{{/genre_list}}
+      </select>
+    </p>
+
+      <button type="submit">Save Album</button>
+
+    <input type="hidden" name="id" value="{{album.id}}" />
+  </form>
+</div>

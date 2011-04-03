@@ -1,0 +1,40 @@
+{{%DOT-NOTATION}}
+<div class="validform">
+  <form id="form" name="form" autocomplete="off" method="post" action="{{links.save}}">
+    <h1>{{editor_title}}</h1>
+    <hr />
+    <p>
+      <label>User Name</label>
+      <input type="text" name="username" value="{{user.username}}" class="first_field" /><br />
+      {{#errors}}{{#username}}<p class="error">{{{username}}}</p>{{/username}}{{/errors}}
+    </p>
+
+    <p>
+      <label>Email</label>
+      <input type="text" name="email" value="{{user.email}}" /><br />
+      {{#errors}}{{#email}}<p class="error">{{{email}}}</p>{{/email}}{{/errors}}
+    </p>
+
+    <p class="cb-container">
+      <label>Admin</label>
+      <input type=checkbox {{#user.is_admin}} CHECKED {{/user.is_admin}} name="is_admin" >
+    </p>
+
+    <p>
+      <label>Password (leave blank to keep current)</label>
+      <input type="password" name="password" value="" /><br />
+      {{#errors}}{{#password}}<p class="error">{{{password}}}</p>{{/password}}{{/errors}}
+    </p>
+
+    <p>
+      <label>Confirm Password (Don't copy/paste!)</label>
+      <input type="password" name="password_confirm" value="" /><br />
+      {{#errors}}{{#password_confirm}}<p class="error">{{{password_confirm}}}</p>{{/password_confirm}}{{/errors}}
+    </p>
+
+    <button type="submit">Save User</button>
+
+    <input type="hidden" name="id" value="{{user.id}}" />
+  </form>
+
+</div>

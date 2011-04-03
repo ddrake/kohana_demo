@@ -1,0 +1,29 @@
+    {{%DOT-NOTATION}}
+    <div id="container">
+      <img src="assets/images/add.png" alt = "Add Button" />
+      <span class="top-link"><a href="{{links.album_add}}">Add new album</a></span>
+      {{#logged_in_user}}<span id="user-info">Current User: {{{logged_in_user}}}</span>
+      <span class="top-link"><a href="{{links.user_logout}}">Log Out</a></span>
+      <span class="top-link"><a href="{{links.user_profile}}">Edit Profile</a></span>{{/logged_in_user}}
+      {{^logged_in_user}}<span class="top-link"><a href="{{links.user_login}}">Log In</a></span>{{/logged_in_user}}
+      {{#user_is_admin}}<span class="top-link"><a href="{{links.admin_list}}">Administer Users</a></span>{{/user_is_admin}}
+      <table class="list" cellspacing="0">
+      <tr>
+        <td colspan="5" class="list_title">{{list_title}}</td>
+      </tr>
+      <tr>
+        <td class="headers">Album name</td>
+        <td class="headers">Artist</td>
+        <td colspan='3' class="headers">Genre</td>
+      </tr>
+      {{#albums}}
+      <tr>
+        <td class='item'>{{{name}}}</td>
+        <td class='item'>{{{artist}}}</td>
+        <td class='item'>{{{genre_name}}}</td>
+        <td class='item'><a href="{{delete_link}}"><img src="assets/images/delete.png" alt="Delete Button" /></a></td>
+        <td class='item'><a href="{{edit_link}}"><img src="assets/images/edit.png" alt="Edit Button" /></a></td>
+      </tr>
+      {{/albums}}
+      </table>
+    </div>

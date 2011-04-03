@@ -1,0 +1,52 @@
+div.validform {
+  margin: 10px;
+  padding: 10px;
+  width: 700px;
+  border: 1px solid #222;
+  background-color: #ccc;
+}
+.validform hr {
+  color: #fff;
+}
+.validform p {
+  margin: 20px 10px 5px 10px;
+}
+.validform label {
+  width: 200px;
+  display: inline-block;
+  text-align: right;
+}
+.validform input {
+  width: 400px;
+  display: inline-block;
+  border-color: #888;
+}
+.cb-container input {
+  width: 5px;
+  margin-left: 2px;
+}
+.cb-container {
+  text-align: left;
+  padding: 0;
+}
+.validform select {
+  width: 200px;
+  display: inline-block;
+}
+.validform p.error {
+  width: 400px;
+  margin-left: 214px;
+  margin-top: 5px;
+  font-size: small;
+  color: #d00;
+}
+.validform span.error {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: small;
+  color: #d00;
+}
+.validform button {
+  margin-top: 20px;
+  margin-left: 214px;
+}
