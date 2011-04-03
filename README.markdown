@@ -15,22 +15,20 @@ Installation
 ------------
 Installation Instructions (non-Git) - see below for Git information. 
 
--Download [Kohana v3.1.2](http://kohanaframework.org/download)
--Install [Kohana v3.1.2](http://kohanaframework.org/3.1/guide/kohana/install)
--Install the [KOstache v2.0.4 module](http://github.com/zombor/KOstache) into modules/kostache/
--Follow the instructions [here for clean urls](http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls)
+- Download [Kohana v3.1.2](http://kohanaframework.org/download)
+- Install [Kohana v3.1.2](http://kohanaframework.org/3.1/guide/kohana/install)
+- Install the [KOstache v2.0.4 module](http://github.com/zombor/KOstache) into modules/kostache/
+- Follow the instructions [here for clean urls](http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls)
 
 Additionally, in your .htaccess, add the following lines:
     # Set Kohana environment to 'development' (to use custom error handler, set this to 'production').
     SetEnv KOHANA_ENV development 
 
-Delete controller/welcome.php if so desired
-
-Copy the files in the application directory of this project into 'application'. 
-Copy the files in the assets directory of this project into 'assets'.
-
-Copy the [Kostache files from here](http://github.com/zombor/KOstache) to modules/kostache
-Copy the [Mustche files from here](http://github.com/bobthecow/mustache.php) to modules/kostache/vendor/mustache
+- Delete controller/welcome.php if so desired
+- Copy the files in the application directory of this project into 'application'. 
+- Copy the files in the assets directory of this project into 'assets'.
+- Copy the [Kostache files from here](http://github.com/zombor/KOstache) to modules/kostache
+- Copy the [Mustche files from here](http://github.com/bobthecow/mustache.php) to modules/kostache/vendor/mustache
 
 In your application/bootstrap.php
 
@@ -70,30 +68,33 @@ Edit the default route to the following:
     'action'     => 'index',
     ));
 
-Edit application/config/auth.php setting the hash_key to a random string of your choice.
-
-Create a mysql database and modify application/config/database.php as required
-Execute the schema in initial_schema.sql.
+- Edit application/config/auth.php setting the hash_key to a random string of your choice.
+- Create a mysql database and modify application/config/database.php as required
+- Execute the schema in initial_schema.sql.
 
 You should be good to go.  The default admin login is:
-username: administrator
-password: admin12345
+- username: administrator
+- password: admin12345
 
+but you can add a new administrator and delete that one if you like.
 
-It's simpler and better to use Git submodules, to do so, refer to: 
+Installation of files is simpler and better using Git submodules, to do so, refer to: 
 [Kohana Git Tutorial](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
 
 If you're working in a Windows (WAMP Server) environment, you may also find these useful:
-[Tutorial for Git with Windows](http://dowdrake.com/showthread.php?400-A-nice-tutorial-for-Git-with-Windows) and
-[Setting up to Help Document Kohana - Git/Win XP](http://dowdrake.com/showthread.php?401-Setting-up-to-help-document-Kohana-Git-Win-XP)
+
+- [Tutorial for Git with Windows](http://dowdrake.com/showthread.php?400-A-nice-tutorial-for-Git-with-Windows) and
+- [Setting up to Help Document Kohana - Git/Win XP](http://dowdrake.com/showthread.php?401-Setting-up-to-help-document-Kohana-Git-Win-XP)
 
 See Also
 --------
-For a much more elaborate example of the capabilities of the Auth module and loads of other useful information, I would recommend 
-[The Unofficial Kohana 3 Wiki](http://kerkness.ca/wiki/doku.php)
+For a much more elaborate example of the capabilities of the Auth module and loads of other useful information, I would recommend
+
+- [The Unofficial Kohana 3 Wiki](http://kerkness.ca/wiki/doku.php)
 
 Credits
 -------
 I've borrowed from several sources, but one in particular should probably be mentioned:
+
 [Kohana: The Swift PHP Framework](http://net.tutsplus.com/tutorials/php/kohana-the-swift-php-framework/)
 This was a Kohana 2 tutorial and its code bears almost no resemblance to that of this project, but I borrowed its simple schema and button images.
