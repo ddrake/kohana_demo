@@ -2,12 +2,14 @@ Kohana Demo Application
 =======================
 A simple demo application for those who learn best from simple, working sample code and want to see a sampling of Kohana features in action.
 
-For a limited time, you can try it out at this [live demo site](http://optocare.angryhosting.com/)
+For a limited time, you can try it out at this [demo site](http://optocare.angryhosting.com/)
 
 - admin login -> username: administrator, password: admin12345
 - regular login -> username: joseph, password: ghghghghgh
 
 Feel free to add your own users and albums and edit and delete them as you choose, but out of courtesy to others, please don't remove either of the preset users or change their passwords.
+
+If either of those passwords doesn't work, it probably means that someone was being impulsive... ;-)  Just be patient and try again later.  I'll get a notification if either of these users change and will try to keep it working from 9-5 PST until I decide to take the demo site down.
 
 Features
 --------
