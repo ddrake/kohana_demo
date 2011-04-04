@@ -22,8 +22,9 @@ div.validform {
   border-color: #888;
 }
 .cb-container input {
-  width: 5px;
+  width: 15px;
   margin-left: 2px;
+  border-color: #ccc;
 }
 .cb-container {
   text-align: left;

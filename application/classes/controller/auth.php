@@ -16,7 +16,6 @@ class Controller_Auth extends Controller {
 		// Open session
 		$this->session = Session::instance();
 
-
 		// First make sure we have at least one admin user
 		// This code can safely be deleted after the first login
 		// DELETE AFTER FIRST LOGIN -- BLOCK START
@@ -37,18 +36,31 @@ class Controller_Auth extends Controller {
 		$user = NULL;
 		// DELETE AFTER FIRST LOGIN -- BLOCK END
 
+		// Handle the unlikely situation where a logged-in user was recently deleted
+		// by an admin, but is now making a request.  In this case, we want to log the user out
+		// before trying to process the request.
+		$auth = Auth::instance();
+		$user = $auth->get_user();
+		// In this situation, we will still have a user in the session,
+		// and the auth instance will still see its original role(s),
+		// but the ORM will fetch NULL for the user ID
+		if (!empty($user) and $user->id === NULL)
+		{
+			$auth->logout(TRUE, TRUE);
+		}
+
 		// Check user auth and role
 		$action_name = Request::current()->action();
 
 		if (($this->auth_required !== FALSE &&
-			 Auth::instance()->logged_in($this->auth_required) === FALSE)
+			 $auth->logged_in($this->auth_required) === FALSE)
 		// auth is required AND user role given in auth_required is NOT logged in
 		|| (is_array($this->secure_actions)
 			&& array_key_exists($action_name, $this->secure_actions)
-			&& Auth::instance()->logged_in($this->secure_actions[$action_name]) === FALSE)
+			&& $auth->logged_in($this->secure_actions[$action_name]) === FALSE)
 		// OR secure_actions is set AND the user role given in secure_actions is NOT logged in
 		) {
-			if (Auth::instance()->logged_in()){
+			if ($auth->logged_in()){
 			// user is logged in but not on the secure_actions list
 				$this->access_required();
 			} else {

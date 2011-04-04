@@ -42,13 +42,11 @@ class View_Pages_Album_List extends Kostache_Layout {
 	}
 	public function logged_in_user()
 	{
-		$auth = Auth::instance();
-		return $auth->logged_in() ? $auth->get_user()->username : null;
+		$user = Auth::instance()->get_user();
+		return empty($user) ? NULL : $user->username;
 	}
 	public function user_is_admin()
 	{
-		$admin_role = ORM::factory('role',array('name' => 'admin'));
-		$auth = Auth::instance();
-		return $auth->logged_in() ? $auth->get_user()->has('roles',$admin_role) : FALSE;
+		return Auth::instance()->logged_in('admin');
 	}
 }
