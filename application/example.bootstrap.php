@@ -82,7 +82,7 @@ if (isset($_SERVER['KOHANA_ENV']))
 
 Kohana::init(array(
 	'base_url'   => '/kohana_demo/',
-	'index_file' => '',
+	'index_file' => FALSE,
 	'errors' => TRUE,  // turn off kohana errors to get more detailed info on php errors.
 ));
 
@@ -110,6 +110,7 @@ Kohana::modules(array(
 	//'unittest'      => MODPATH.'unittest',   // Unit testing
 	//'userguide'     => MODPATH.'userguide',  // User guide and API documentation
 	'kostache'      => MODPATH.'kostache',      // Kostache logic-less view
+	'email'          => MODPATH.'email',      // Swifmailer email module
 ));
 
 /**

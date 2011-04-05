@@ -77,6 +77,7 @@ class Controller_User extends Controller_Auth {
 				$user = Auth::instance()->get_user();
 				$user = $user->update_user($_POST, array('password', 'email'));
 				$user->save();
+				EmailHelper::notify($user, $_POST['password']);
 				$this->redirect_to_albums();
 			}
 			catch (ORM_Validation_Exception $e)

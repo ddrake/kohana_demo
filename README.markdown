@@ -19,76 +19,46 @@ Features
 - Form validation, displaying default error messages
 - Custom application error messages
 - ORM with MySQL database
+- Email notification using Swiftmailer (this requires an email server, but if you don't have one, the application won't break)
 
 Installation
 ------------
-Installation Instructions (non-Git) - see below for Git information.
+##Installing Files Using Git
+- create a directory
+- open a git bash there
+- $ git clone git://github.com/ddrake/kohana_demo.git .
+- $ git fetch –all
+- $ git submodule update –-init –recursive
 
+For more information on Git, see the [Kohana Git Tutorial](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
+
+##Installing Files Without Git
 - Download [Kohana v3.1.2](http://kohanaframework.org/download)
 - Install [Kohana v3.1.2](http://kohanaframework.org/3.1/guide/kohana/install)
 - Install the [KOstache v2.0.4 module](http://github.com/zombor/KOstache) into modules/kostache/
-- Follow the instructions [here for clean urls](http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls)
-
-Additionally, in your .htaccess, add the following lines:
-    # Set Kohana environment to 'development' (to use custom error handler, set this to 'production').
-    SetEnv KOHANA_ENV development
-
 - Delete controller/welcome.php if so desired
 - Copy the files in the application directory of this project into 'application'.
 - Copy the files in the assets directory of this project into 'assets'.
 - Copy the [Kostache files from here](http://github.com/zombor/KOstache) to modules/kostache
 - Copy the [Mustche files from here](http://github.com/bobthecow/mustache.php) to modules/kostache/vendor/mustache
 
-In your application/bootstrap.php
-
-Enable the following modules: auth, orm, database, kostache -- it should look something like this:
-
-    Kohana::modules(array(
-    	'auth'       => MODPATH.'auth',       // Basic authentication
-    	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
-    	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-    	'database'   => MODPATH.'database',   // Database access
-    	// 'image'      => MODPATH.'image',      // Image manipulation
-    	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
-    	// 'unittest'   => MODPATH.'unittest',   // Unit testing
-    	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
-    	 'kostache'  => MODPATH.'kostache',  // User guide and API documentation
-    	));
-
-
-Add the following routes:
-
-    Route::set('normal', '(<controller>(/<action>(/<id>)))', array('id' => '[0-9]++'))
-    ->defaults(array(
-    'controller' => 'album',
-    'action'     => 'index',
-    'id'         => NULL,
-    ));
-    Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
-    ->defaults(array(
-    'controller' => 'error'
-    ));
-
-Edit the default route to the following:
-
-    Route::set('default', '(<controller>(/<action>(/<id>)))')
-    ->defaults(array(
-    'controller' => 'album',
-    'action'     => 'index',
-    ));
-
+##Configuration
+- Make sure the application/cache and application/logs directories have write access.
+- Rename the example.htaccess included with this application to .htaccess and edit the RewriteBase to match your installation directory.  For more information see [here](http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls)
+- Leave the line `SetEnv KOHANA_ENV development` as is for now.  Later you can change it to production to use the custom error handler.
+- Rename the application/example.bootstrap.php included with this application to bootstrap.php and set base_url to match your installation directory.
+- Check that the following modules are enabled in bootstrap.php: auth, orm, database, kostache, email
 - Edit application/config/auth.php setting the hash_key to a random string of your choice.
-- Create a mysql database and modify application/config/database.php as required
+- Create a mysql database
+- Edit application/config/database.php to match the database you created
 - Execute the schema in initial_schema.sql.
+- If you're installing to a live server and want to test email notification about a primary user being deleted or having their password changed, edit aplication/config/email.php to set the to and from email addresses.
 
 You should be good to go.  The default admin login is:
 - username: administrator
 - password: admin12345
 
 but you can add a new administrator and delete that one if you like.
-
-Installation of files is simpler and better using Git submodules, to do so, refer to:
-[Kohana Git Tutorial](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
 
 If you're working in a Windows (WAMP Server) environment, you may also find these useful:
 

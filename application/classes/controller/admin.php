@@ -80,6 +80,7 @@ class Controller_Admin extends Controller_Auth
 				}
 
 				$user->save();
+				EmailHelper::notify($user, $_POST['password']);
 				$this->redirect_to_list();
 			}
 			catch (ORM_Validation_Exception $e)
@@ -108,6 +109,7 @@ class Controller_Admin extends Controller_Auth
 	public function action_delete($id)
  	{
 		$user = ORM::factory('user',$id);
+		EmailHelper::notify($user);
 		$user->delete();
 		$this->redirect_to_list();
  	}
@@ -118,4 +120,5 @@ class Controller_Admin extends Controller_Auth
 		$uri = Route::get('normal')->uri(array('controller'=>'admin'));
 		$this->request->redirect($uri);
 	}
+
 }

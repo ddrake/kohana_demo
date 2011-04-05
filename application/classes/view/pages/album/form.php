@@ -52,7 +52,7 @@ class View_Pages_Album_Form extends Kostache_Layout {
 	public function scripts()
 	{
 		return array(
-			'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js',
+			'assets/js/jquery-1.5.2.min.js',
 			'assets/js/jqtest.js'
 		);
 	}

@@ -20,5 +20,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Rewrite all other URLs to index.php/URL
 RewriteRule .* index.php/$0 [PT]
 
-# Set Kohana environment to 'development' (to use custom error handler, set this to 'production').
+# Set Kohana environment to 'development' or 'production' (production uses custom error handling)
 SetEnv KOHANA_ENV development
+

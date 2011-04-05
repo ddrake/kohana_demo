@@ -10,9 +10,12 @@
     <base href="{{base}}" />
     <link type="text/css" href="assets/css/reset.css" rel="stylesheet" />
     <link type="text/css" href="assets/css/style.css" rel="stylesheet" />
-    <link type="text/css" href="assets/css/form.css" rel="stylesheet" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/jqtest.js"></script>
+    {{%IMPLICIT-ITERATOR}}{{#styles}}
+    <link type="text/css" href="{{.}}" rel="stylesheet" />
+    {{/styles}}
+    {{%IMPLICIT-ITERATOR}}{{#scripts}}
+    <script type="text/javascript" src="{{.}}"></script>
+    {{/scripts}}
   </head>
   <body>
     <div id="container">
