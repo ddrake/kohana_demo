@@ -23,16 +23,16 @@ Features
 
 Installation
 ------------
-##Installing Files Using Git
+###Installing Files Using Git
 - create a directory
 - open a git bash there
-- $ git clone git://github.com/ddrake/kohana_demo.git .
-- $ git fetch –all
-- $ git submodule update –-init –recursive
+- `$ git clone git://github.com/ddrake/kohana_demo.git .`
+- `$ git fetch –all`
+- `$ git submodule update –-init –recursive`
 
 For more information on Git, see the [Kohana Git Tutorial](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
 
-##Installing Files Without Git
+###Installing Files Without Git
 - Download [Kohana v3.1.2](http://kohanaframework.org/download)
 - Install [Kohana v3.1.2](http://kohanaframework.org/3.1/guide/kohana/install)
 - Install the [KOstache v2.0.4 module](http://github.com/zombor/KOstache) into modules/kostache/
@@ -42,7 +42,7 @@ For more information on Git, see the [Kohana Git Tutorial](http://kohanaframewor
 - Copy the [Kostache files from here](http://github.com/zombor/KOstache) to modules/kostache
 - Copy the [Mustche files from here](http://github.com/bobthecow/mustache.php) to modules/kostache/vendor/mustache
 
-##Configuration
+###Configuration
 - Make sure the application/cache and application/logs directories have write access.
 - Rename the example.htaccess included with this application to .htaccess and edit the RewriteBase to match your installation directory.  For more information see [here](http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls)
 - Leave the line `SetEnv KOHANA_ENV development` as is for now.  Later you can change it to production to use the custom error handler.
