@@ -27,8 +27,8 @@ Installation
 - create a directory
 - open a git bash there
 - `$ git clone git://github.com/ddrake/kohana_demo.git .`
-- `$ git fetch –all`
-- `$ git submodule update –-init –recursive`
+- `$ git fetch --all`
+- `$ git submodule update --init --recursive`
 
 For more information on Git, see the [Kohana Git Tutorial](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
 
