@@ -50,11 +50,12 @@ For more information on Git, see the [Kohana Git Tutorial](http://kohanaframewor
 - Check that the following modules are enabled in bootstrap.php: auth, orm, database, kostache, email
 - Edit application/config/auth.php setting the hash_key to a random string of your choice.
 - Create a mysql database
-- Edit application/config/database.php to match the database you created
-- Execute the schema in initial_schema.sql.
-- If you're installing to a live server and want to test email notification about a primary user being deleted or having their password changed, edit aplication/config/email.php to set the to and from email addresses.
+- Edit the 'default' section of application/config/database.php to match the hostname, database and username for the mysql database you created
+- Execute the schema in initial_schema.sql in your mysql datase.
+- If you're installing to a live server and want to test email notification about a primary user being deleted or having their password changed, edit aplication/config/email.php to set the 'to' and 'from' email addresses.
 
 You should be good to go.  The default admin login is:
+
 - username: administrator
 - password: admin12345
 
