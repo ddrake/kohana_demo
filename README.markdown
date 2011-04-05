@@ -9,13 +9,13 @@ For a limited time, you can try it out at this [demo site](http://optocare.angry
 
 Feel free to add your own users and albums and edit and delete them as you choose, but out of courtesy to others, please don't remove either of the preset users or change their passwords.
 
-If either of those passwords doesn't work, it probably means that someone was being impulsive... ;-)  Just be patient and try again later.  I'll get a notification if either of these users change and will try to keep it working from 9-5 PST until I decide to take the demo site down.
+If either of those passwords doesn't work, it probably means that someone was being impulsive... ;-)  Just be patient and try again later.  I'll get a notification if either of these users change and will try to keep it working from 9-5 PST.
 
 Features
 --------
 - Reverse Routing
 - Templating with Kostache
-- Basic Auth, including the ability to manage users with login role and optionally admin role
+- Basic Auth, including the ability to manage users. A user has the 'login' role by default and can optionally be assigned the 'admin' role
 - Form validation, displaying default error messages
 - Custom application error messages
 - ORM with MySQL database
@@ -23,7 +23,7 @@ Features
 
 Installation
 ------------
-###Installing Files Using Git
+###Installing Files Using Git (Recommended)
 - create a directory
 - open a git bash there
 - `$ git clone git://github.com/ddrake/kohana_demo.git .`
