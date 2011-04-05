@@ -32,8 +32,8 @@ class View_Pages_User_Login extends Kostache_Layout {
 	public function scripts()
 	{
 		return array(
-			'assets/js/jquery-1.5.2.min.js',
-			'assets/js/jqtest.js'
+			'assets/js/jquery-1_5_2_min.js',
+			'assets/js/jqtest.js',
 		);
 	}
 }

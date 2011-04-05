@@ -26,11 +26,4 @@ class View_Pages_ErrorHandler extends Kostache {
 		return URL::base(Request::$initial, TRUE);
 	}
 
-	public function scripts()
-	{
-		return array(
-			'assets/js/jquery-1.5.2.min.js',
-			'assets/js/jqtest.js'
-		);
-	}
 }
