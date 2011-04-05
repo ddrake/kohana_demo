@@ -27,8 +27,8 @@ Installation
 - create a directory
 - open a git bash there
 - `$ git clone git://github.com/ddrake/kohana_demo.git .`
-- `$ git fetch --all`
-- `$ git submodule update --init --recursive`
+- `$ git fetch`
+- `$ git submodule update --init --recursive`  It's a good idea to watch for errors during this step. I've occasionally seen 'fatal: unable to connect a socket (Invalid Argument).  If you see something like that, I'd just blow away the directory and start over.
 
 For more information on Git, see the [Kohana Git Tutorial](http://kohanaframework.org/3.0/guide/kohana/tutorials/git)
 
