@@ -59,13 +59,13 @@ class Controller_Album extends Controller_Auth
 			$album = ORM::factory('album',$this->request->post('id'))->values($_POST);
 			try
 			{
-				$album->save();
+				$album->save_album($_POST, array('name','artist'));
 				$this->redirect_to_list();
 			}
 			catch (ORM_Validation_Exception $e)
 			{
 				// todo: specify a real messages file here...
-				$errors = $e->errors('dummy');
+				$errors = Arr::flatten($e->errors('hack'));
 			}
 			if ($album->id == null)
 			{
@@ -95,5 +95,11 @@ class Controller_Album extends Controller_Auth
 	{
 		$uri = Route::get('normal')->uri(array('controller'=>'album'));
 		$this->request->redirect($uri);
+	}
+
+	public function after()
+	{
+		// Add the profiler output to the controller
+		//$this->response->body($this->response->body() . View::factory('profiler/stats'));
 	}
 }

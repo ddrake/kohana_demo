@@ -19,16 +19,28 @@ class Model_Album extends ORM
       ),
     );
   }
-  
+
   public function filters()
   {
     return array(
       'name' => array(
-        array('HTML::chars', array(':value'))
+        array('HTML::chars', array(':value')),
+        array('trim', array(':value')),
       ),
       'artist' => array(
-        array('HTML::chars', array(':value'))
+        array('HTML::chars', array(':value')),
+        array('trim', array(':value')),
       ),
     );
   }
+
+	public function save_album($values, $expected)
+	{
+		// Extra validation for album name - ensure that the album name is unique for the artist.
+		$extra_validation = Validation::factory($values)
+			->rule('name','not_exists',array(':validation', 'album', ':field', array('artist')));
+
+		return $this->values($values, $expected)->save($extra_validation);
+	}
+
 }
