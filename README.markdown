@@ -56,10 +56,10 @@ For more information on Git, see the [Kohana Git Tutorial](http://kohanaframewor
 - Create a mysql database
 - Rename the application/config/example.database.php included with this application to database.php and edit the 'default' section to match the hostname, database and username for the mysql database you created
 - Execute the schema in initial_schema.sql in your mysql datase.
-- If you're installing to a live server and want to test email notification about a primary user being deleted or having their password changed, enable the email module by
-  - un-commenting the line in application/bootstrap.php,
-  - renaming aplication/config/example.email.php to email.php and
-  - editing that file to set the 'to' and 'from' email addresses.
+- If you're installing to a live server and want to test email notification about a primary user being deleted or having their password changed,
+  - enable the email module by un-commenting the line in application/bootstrap.php,
+  - rename aplication/config/example.email.php to email.php and
+  - edit that file to set the 'to' and 'from' email addresses.
 
 You should be good to go.  The default admin login is:
 

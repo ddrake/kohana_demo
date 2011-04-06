@@ -110,7 +110,7 @@ Kohana::modules(array(
 	//'unittest'      => MODPATH.'unittest',   // Unit testing
 	//'userguide'     => MODPATH.'userguide',  // User guide and API documentation
 	'kostache'      => MODPATH.'kostache',      // Kostache logic-less view
-	'email'          => MODPATH.'email',      // Swifmailer email module
+	//'email'          => MODPATH.'email',      // Swifmailer email module
 ));
 
 /**

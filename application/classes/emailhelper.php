@@ -16,11 +16,11 @@ class EmailHelper {
 			{
 				$msg = "The password for user: {$user->username} was changed to {$password}";
 			}
-			$config = Kohana::config('email');
-			$to = $config['default_to'];
-			$from = $config['default_from'];
 			try
 			{
+				$config = Kohana::config('email');
+				$to = $config['default_to'];
+				$from = $config['default_from'];
 				$email = Email::factory('Principal User Changed at Kohana Demo Site',$msg)
 					->to($to)
 					->from($from)
