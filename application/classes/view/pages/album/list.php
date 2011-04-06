@@ -18,7 +18,7 @@ class View_Pages_Album_List extends Kostache_Layout {
 		// using with('genre') improves efficiency by pre-loading the genre info (avoids lazy loading)
 		$albums = array();
 		$route = Route::get('normal');
-		foreach(ORM::factory('Album')->with('genre')->find_all()->as_array() as $album)
+		foreach(ORM::factory('Album')->with('genre')->order_by('artist')->order_by('name')->find_all()->as_array() as $album)
 		{
 			$album = $album->as_array();
 			$album['genre_name'] = $album['genre']['name'];

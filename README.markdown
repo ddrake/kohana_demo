@@ -16,7 +16,11 @@ Features
 - Reverse Routing
 - Templating with Kostache
 - Basic Auth, including the ability to manage users. A user has the 'login' role by default and can optionally be assigned the 'admin' role
-- Form validation, displaying default error messages
+- Form validation, displaying default error messages for the following cases:
+  - album name and artist not empty (values are now being trimmed before validation so name => '  ' will now fail)
+  - album name and artist limited to 80 chars
+  - album name must be unique for a given artist
+  - (just using built-in validation for user authentication)
 - Custom application error messages
 - ORM with MySQL database
 - Email notification using Swiftmailer (this requires an email server, but if you don't have one, the application won't break)
@@ -46,13 +50,16 @@ For more information on Git, see the [Kohana Git Tutorial](http://kohanaframewor
 - Make sure the application/cache and application/logs directories have write access.
 - Rename the example.htaccess included with this application to .htaccess and edit the RewriteBase to match your installation directory.  For more information see [here](http://kohanaframework.org/3.0/guide/kohana/tutorials/clean-urls)
 - Leave the line `SetEnv KOHANA_ENV development` as is for now.  Later you can change it to production to use the custom error handler.
-- Rename the application/example.bootstrap.php included with this application to bootstrap.php and set base_url to match your installation directory.
+- Rename application/example.bootstrap.php to bootstrap.php and set base_url to match your installation directory.
 - Check that the following modules are enabled in bootstrap.php: auth, orm, database, kostache, email
-- Edit application/config/auth.php setting the hash_key to a random string of your choice.
+- Rename application/config/example.auth.php to auth.php and edit it, setting the hash_key to a random string of your choice.
 - Create a mysql database
-- Edit the 'default' section of application/config/database.php to match the hostname, database and username for the mysql database you created
+- Rename the application/config/example.database.php included with this application to database.php and edit the 'default' section to match the hostname, database and username for the mysql database you created
 - Execute the schema in initial_schema.sql in your mysql datase.
-- If you're installing to a live server and want to test email notification about a primary user being deleted or having their password changed, edit aplication/config/email.php to set the 'to' and 'from' email addresses.
+- If you're installing to a live server and want to test email notification about a primary user being deleted or having their password changed, enable the email module by
+  - un-commenting the line in application/bootstrap.php,
+  - renaming aplication/config/example.email.php to email.php and
+  - editing that file to set the 'to' and 'from' email addresses.
 
 You should be good to go.  The default admin login is:
 

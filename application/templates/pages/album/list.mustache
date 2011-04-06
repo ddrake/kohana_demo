@@ -12,14 +12,14 @@
         <td colspan="5" class="list_title">{{list_title}}</td>
       </tr>
       <tr>
-        <td class="headers">Album name</td>
         <td class="headers">Artist</td>
+        <td class="headers">Album name</td>
         <td colspan='3' class="headers">Genre</td>
       </tr>
       {{#albums}}
       <tr>
-        <td class='item'>{{{name}}}</td>
         <td class='item'>{{{artist}}}</td>
+        <td class='item'>{{{name}}}</td>
         <td class='item'>{{{genre_name}}}</td>
         <td class='item'><a href="{{delete_link}}"><img src="assets/images/delete.png" alt="Delete Button" /></a></td>
         <td class='item'><a href="{{edit_link}}"><img src="assets/images/edit.png" alt="Edit Button" /></a></td>

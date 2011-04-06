@@ -31,7 +31,7 @@ class View_Pages_Admin_List extends Kostache_Layout {
 		$users = array();
 		$admin_role = ORM::factory('role',array('name' => 'admin'));
 		$route = Route::get('normal');
-		foreach(ORM::factory('user')->find_all() as $user)
+		foreach(ORM::factory('user')->order_by('username','asc')->find_all() as $user)
 		{
 			if ($user->id === $cur_admin->id) continue; // don't show the current user -- they shouldn't update this way (or delete self).
 			$arr_user = $user->as_array();
