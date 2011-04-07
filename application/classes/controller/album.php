@@ -94,22 +94,27 @@ class Controller_Album extends Controller_Auth
 
 	public function action_details($id)
 	{
-
-		if ( ! Fragment::load("album_{$id}", Date::DAY * 7))
+		if ((int)$id > 0)
 		{
-			$album = ORM::factory('album',$id);
-			try
+			if ( ! Fragment::load("album_{$id}", Date::DAY * 7))
 			{
-				$config = Kohana::config('lastfm');
-				$details = simplexml_load_file("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key={$config['api_key']}&artist={$album->artist}&album={$album->name}");
-				$view = new View_Pages_Album_Details;
-				$view->set('details',$details);
-				echo $view;
-				Fragment::save();
+				$album = ORM::factory('album',$id);
+				try
+				{
+					$config = Kohana::config('lastfm');
+					$details = simplexml_load_file("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key={$config['api_key']}&artist={$album->artist}&album={$album->name}");
+					$view = new View_Pages_Album_Details;
+					$view->set('details',$details);
+					echo $view;
+					Fragment::save();
+				}
+				catch (Exception $e) {
+					$this->redirect_to_list();
+				}
 			}
-			catch (Exception $e) {
-				$this->redirect_to_list();
-			}
+		}
+		else {
+			echo "<h3>click a row to view album details...</h3>";
 		}
 	}
 

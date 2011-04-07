@@ -41,6 +41,13 @@ class View_Pages_Album_List extends Kostache_Layout {
 			'admin_list' => $route->uri(array('controller'=>'admin')),
 		);
 	}
+	public function scripts()
+	{
+		return array(
+			'assets/js/jquery-1_5_2_min.js',
+			'assets/js/ajax_list.js'
+		);
+	}
 	public function logged_in_user()
 	{
 		$user = Auth::instance()->get_user();

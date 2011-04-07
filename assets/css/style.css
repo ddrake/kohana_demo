@@ -1,24 +1,50 @@
-ol {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  list-style-type: decimal;
-  list-style-position: inside;
-}
-li a {
-  font-size: 12px;
-  line-height: 18px;
-}
 html, body {
   font-family: Arial, Helvetica, sans-serif ;
 	font-weight: normal;
   font-size: 12px;
   line-height: 14px;
+  color: #000;
+  background: #E3E0D1;
+}
+#wrap {
+  width:810px;
+  margin:0 auto;
+  background:#ddd;
+  border: 1px solid #888;
+}
+
+#header {
+  padding: 5px 10px;
+  background: #eee;
+}
+
+#nav {
+  padding: 5px 10px;
+  background:#ccc;
+  border-bottom:1px solid #fff;
+}
+
+#main {
+  float: left;
+  width: 510px;
+  padding: 10px;
+  border-right: 1px solid #fff;
+}
+
+#details {
+  float: right;
+  width: 250px;
+  padding: 10px;
+}
+
+#footer {
+  clear: both;
+  padding: 5px 10px;
+  background:#ccc;
+  border-top: 1px solid #fff;
 }
 
 
-#container {
-  margin: 5px 10px 5px 20px;
-}
 h1, h2 {
 	font-family: "Trebuchet MS",Verdana, sans-serif ;
 }
@@ -45,6 +71,16 @@ a {
 	color: #00F;
 	vertical-align:text-top;
 }
+ol {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+li a {
+  font-size: 12px;
+  line-height: 18px;
+}
 
 img {
 	border: 0;
@@ -64,55 +100,17 @@ select {
 	width:185px;
 }
 
-table.editor
-{
-	text-align: left;
-	font-weight: normal;
-	font-size: 11px;
-	color: #fff;
-	width: 280px;
-	background-color: #666;
-	border: 0px;
-	border-collapse: collapse;
-	border-spacing: 0px;
-}
-
-table.editor td.editor_title
-{
-	background-color: #666;
-	color: #fff;
-	padding: 4px;
-	text-align: left;
-	font-weight: bold;
-	font-size: 16px;
-}
-
-table.editor td
-{
-	padding: 4px 10px 4px 4px;
-}
-
-table.editor td div.error
-{
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  background-color: #f00;
-}
 table.list
 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 500px;
 	text-align: center;
 	font-weight: normal;
 	font-size: 11px;
 	color: #fff;
-	width: 280px;
 	background-color: #666;
 	border: 0px;
 	border-collapse: collapse;
 	border-spacing: 0px;
-  width: 500px;
 }
 
 table.list td.item
