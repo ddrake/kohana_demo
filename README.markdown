@@ -23,9 +23,9 @@ Features
   - (just using built-in validation for user authentication)
 - Custom application error messages
 - ORM with MySQL database
-- Email notification using Swiftmailer (this requires an email server, but if you don't have one, the application won't break)
+- Email notification using Swiftmailer (this requires an email server, but if you don't have one, it's OK -- the application won't break)
 - Fetching of album information from LastFM.com
-- Album listing as XML via uri album/listxml
+- Album listing as XML via uri: album/listxml
 
 Installation
 ------------
@@ -84,10 +84,11 @@ See Also
 For a much more elaborate example of the capabilities of the Auth module and loads of other useful information, I would recommend
 
 - [The Unofficial Kohana 3 Wiki](http://kerkness.ca/wiki/doku.php)
+- [Mustach 5 Manual](http://mustache.github.com/mustache.5.html)
 
 Credits
 -------
-I've borrowed from several sources, but one in particular should probably be mentioned:
+I've borrowed heavily from several sources, including the Kohana site itself and the Unofficial Kohana 3 Wiki site but one other source should probably be mentioned:
 
 [Kohana: The Swift PHP Framework](http://net.tutsplus.com/tutorials/php/kohana-the-swift-php-framework/)
 This was a Kohana 2 tutorial and its code bears almost no resemblance to that of this project, but I borrowed its simple schema and button images.
