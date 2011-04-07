@@ -43,4 +43,35 @@ class Model_Album extends ORM
 		return $this->values($values, $expected)->save($extra_validation);
 	}
 
+	public static function xml_list()
+	{
+		$xw = new XMLWriter();
+		$xw->openMemory();
+		$xw->startDocument('1.0','UTF-8');
+		$xw->startElement('Albums');
+		$xw->setIndent(true);
+		foreach(ORM::factory('Album')->with('genre')->order_by('artist')->order_by('name')->find_all()->as_array() as $album)
+		{
+			$xw->startElement('Album');
+				$xw->startElement('ID');
+					$xw->text($album->id);
+				$xw->endElement();
+				$xw->startElement('Artist');
+					$xw->text($album->artist);
+				$xw->endElement();
+				$xw->startElement('Name');
+					$xw->text($album->name);
+				$xw->endElement();
+				$xw->startElement('Genre');
+					$xw->text($album->genre->name);
+				$xw->endElement();
+			$xw->endElement();  // Album
+		}
+		$xw->endElement(); // Albums
+		$data = $xw->outputMemory(true);
+		$xw->flush();
+		unset($xw);
+		return $data;
+	}
+
 }

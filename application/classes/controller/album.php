@@ -113,6 +113,12 @@ class Controller_Album extends Controller_Auth
 		}
 	}
 
+	public function action_listxml()
+	{
+		$this->response->headers(array('Content-Type' => 'text/xml', 'Cache-Control' => 'no-cache'));
+		$this->response->body(Model_Album::xml_list());
+	}
+
 	private function delete_album_fragment($id)
 	{
 		try

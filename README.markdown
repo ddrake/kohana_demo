@@ -24,6 +24,8 @@ Features
 - Custom application error messages
 - ORM with MySQL database
 - Email notification using Swiftmailer (this requires an email server, but if you don't have one, the application won't break)
+- Fetching of album information from LastFM.com
+- Album listing as XML via uri album/listxml
 
 Installation
 ------------
