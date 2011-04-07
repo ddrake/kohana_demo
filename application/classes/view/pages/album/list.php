@@ -22,6 +22,7 @@ class View_Pages_Album_List extends Kostache_Layout {
 		{
 			$album = $album->as_array();
 			$album['genre_name'] = $album['genre']['name'];
+			$album['details_link'] = $route->uri(array('controller'=>'album', 'action'=>'details', 'id'=>$album['id']));
 			$album['edit_link'] = $route->uri(array('controller'=>'album', 'action'=>'edit', 'id'=>$album['id']));
 			$album['delete_link'] = $route->uri(array('controller'=>'album', 'action'=>'delete', 'id'=>$album['id']));
 			$albums[] = $album;

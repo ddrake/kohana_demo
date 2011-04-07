@@ -54,8 +54,12 @@ For more information on Git, see the [Kohana Git Tutorial](http://kohanaframewor
 - Check that the following modules are enabled in bootstrap.php: auth, orm, database, kostache, email
 - Rename application/config/example.auth.php to auth.php and edit it, setting the hash_key to a random string of your choice.
 - Create a mysql database
-- Rename the application/config/example.database.php included with this application to database.php and edit the 'default' section to match the hostname, database and username for the mysql database you created
+- Rename the application/config/example.database.php to database.php and edit the 'default' section to match the hostname, database and username for the mysql database you created
 - Execute the schema in initial_schema.sql in your mysql datase.
+- If you want to enable album information from LastFM.com,
+  - Sign up for a free api key at [Last.fm Web Services](http://www.last.fm/api),
+  - rename the application/config/example.lastfm.php to lastfm.php and
+  - edit that file to set the api_key.
 - If you're installing to a live server and want to test email notification about a primary user being deleted or having their password changed,
   - enable the email module by un-commenting the line in application/bootstrap.php,
   - rename aplication/config/example.email.php to email.php and

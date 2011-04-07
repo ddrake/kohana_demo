@@ -8,7 +8,7 @@ class Controller_Error extends Controller
 		parent::before();
 
 		$this->view = new View_Pages_ErrorHandler;
-		$this->view->set('page', URL::site(rawurldecode(Request::$initial->uri())));
+		$this->view->set('page', URL::site(rawurldecode(Request::detect_uri())));
 
 		// Internal request only!
 		if (Request::$initial !== $this->request)

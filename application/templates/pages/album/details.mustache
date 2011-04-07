@@ -1,0 +1,12 @@
+    {{%DOT-NOTATION}}
+    <div id="container">
+      <span class="top-link"><a href="{{links.album_list}}">Back to Album List</a></span>
+      <hr />
+      <h1>{{artist}} - {{name}}</h1>
+      <img src="{{image}}" alt="album cover" />
+      <ol>
+      {{#tracks}}
+      <li><a href="{{track.url}}" target="_blank" >{{track.name}}</a></li>
+      {{/tracks}}
+      </ol>
+    </div>

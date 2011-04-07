@@ -26,9 +26,9 @@ class Kohana_Exception extends Kohana_Kohana_Exception {
 
                 // Error sub-request.
                 echo Request::factory(Route::get('error')->uri($attributes))
-                ->execute()
-                ->send_headers()
-                ->body();
+                ->execute() 		// execute() returns a Response
+                ->send_headers()  	// sends headers, returns the Response
+                ->body(); 			// returns the rendered content
 
             }
             catch (Exception $e)
