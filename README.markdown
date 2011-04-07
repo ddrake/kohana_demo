@@ -84,7 +84,7 @@ See Also
 For a much more elaborate example of the capabilities of the Auth module and loads of other useful information, I would recommend
 
 - [The Unofficial Kohana 3 Wiki](http://kerkness.ca/wiki/doku.php)
-- [Mustach 5 Manual](http://mustache.github.com/mustache.5.html)
+- [Mustache 5 Manual](http://mustache.github.com/mustache.5.html)
 
 Credits
 -------
