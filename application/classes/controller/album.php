@@ -94,6 +94,8 @@ class Controller_Album extends Controller_Auth
 
 	public function action_details($id)
 	{
+		$default_msg = "<h3>click a row to view album details...</h3>";
+		$error_msg = "<h3>couldn't find info for that album...</h3>";
 		if ((int)$id > 0)
 		{
 			if ( ! Fragment::load("album_{$id}", Date::DAY * 7))
@@ -109,12 +111,12 @@ class Controller_Album extends Controller_Auth
 					Fragment::save();
 				}
 				catch (Exception $e) {
-					$this->redirect_to_list();
+					echo $error_msg;
 				}
 			}
 		}
 		else {
-			echo "<h3>click a row to view album details...</h3>";
+			echo $default_msg;
 		}
 	}
 
