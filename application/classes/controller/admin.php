@@ -80,7 +80,7 @@ class Controller_Admin extends Controller_Auth
 				}
 
 				$user->save();
-				EmailHelper::notify($user, $this->response->post('password'));
+				EmailHelper::notify($user, $this->request->post('password'));
 				$this->redirect_to_list();
 			}
 			catch (ORM_Validation_Exception $e)
