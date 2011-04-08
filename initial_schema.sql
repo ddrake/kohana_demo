@@ -1,11 +1,11 @@
 CREATE TABLE `albums` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(100) collate utf8_bin NOT NULL,
-  `artist` varchar(100) collate utf8_bin NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `artist` varchar(100) NOT NULL,
   `genre_id` int(11) NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `genre_id` (`genre_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=19 ;
 
 INSERT INTO `albums` (`id`, `name`, `artist`, `genre_id`) VALUES
 (2, 'Lines, Vines And Trying Times', 'Jonas Brothers', 16),
@@ -28,10 +28,10 @@ INSERT INTO `albums` (`id`, `name`, `artist`, `genre_id`) VALUES
 
 CREATE TABLE `genres` (
   `id` int(11) NOT NULL auto_increment,
-  `name` varchar(50) collate utf8_bin NOT NULL,
+  `name` varchar(50) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=22 ;
 
 INSERT INTO `genres` (`id`, `name`) VALUES
 (1, 'Alternative Rock'),
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `description` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_name` (`name`)
-) ENGINE=INNODB  DEFAULT CHARSET=utf8 ;
+) ENGINE=INNODB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 (1, 'login', 'Login privileges, granted after account confirmation'),
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `roles_users` (
   `role_id` INT(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`user_id`,`role_id`),
   KEY `fk_role_id` (`role_id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_username` (`username`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=INNODB  DEFAULT CHARSET=utf8 ;
+) ENGINE=INNODB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
 CREATE TABLE IF NOT EXISTS `user_tokens` (
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `user_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_token` (`token`),
   KEY `fk_user_id` (`user_id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 ;
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
 ALTER TABLE `roles_users`
