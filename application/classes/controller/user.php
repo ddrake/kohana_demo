@@ -24,9 +24,9 @@ class Controller_User extends Controller_Auth {
 		if($auth->logged_in() != 0){
 			$this->redirect_to_albums();
 		}
-		if ($_POST)
+		if (count($_POST) > 0)
 		{
-			$auth->login(Arr::get($_POST,'username'),Arr::get($_POST,'password'));
+			$auth->login($this->request->post('username'),$this->request->post('password'));
 			if ($auth->logged_in())
 			{
 				$this->redirect_to_albums();
@@ -69,7 +69,7 @@ class Controller_User extends Controller_Auth {
 
 	public function action_save()
 	{
-		if ($_POST)
+		if (count($_POST) > 0)
 		{
 			$errors = NULL;
 			try
@@ -77,7 +77,7 @@ class Controller_User extends Controller_Auth {
 				$user = Auth::instance()->get_user();
 				$user = $user->update_user($_POST, array('password', 'email'));
 				$user->save();
-				EmailHelper::notify($user, $_POST['password']);
+				EmailHelper::notify($user, $this->request->post('password'));
 				$this->redirect_to_albums();
 			}
 			catch (ORM_Validation_Exception $e)

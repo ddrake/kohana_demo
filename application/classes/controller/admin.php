@@ -53,34 +53,34 @@ class Controller_Admin extends Controller_Auth
 
 	public function action_save()
 	{
-		if ($_POST)
+		if (count($_POST) > 0)
 		{
 			try
 			{
 				$login_role = ORM::factory('role',array('name' => 'login'));
 				$admin_role = ORM::factory('role', array('name' => 'admin'));
-				if (empty ($_POST['id']))
+				if (isset($_POST['id']))
+				{
+					$user = ORM::factory('user',$this->request->post('id'));
+					$user->update_user($_POST, array('username','password','email'));
+				}
+				else
 				{
 					$user = ORM::factory('user');
 					$user->create_user($_POST, array('username','password','email'));
 					$user->add('roles',$login_role);
 				}
-				else
-				{
-					$user = ORM::factory('user',$_POST['id']);
-					$user->update_user($_POST, array('username','password','email'));
-				}
-				if (!empty($_POST['is_admin']) && !$user->has('roles',$admin_role))
+				if (isset($_POST['is_admin']) && !$user->has('roles',$admin_role))
 				{
 					$user->add('roles',$admin_role);
 				}
-				elseif (empty($_POST['is_admin']) && $user->has('roles',$admin_role))
+				elseif (!isset($_POST['is_admin']) && $user->has('roles',$admin_role))
 				{
 					$user->remove('roles', $admin_role);
 				}
 
 				$user->save();
-				EmailHelper::notify($user, $_POST['password']);
+				EmailHelper::notify($user, $this->response->post('password'));
 				$this->redirect_to_list();
 			}
 			catch (ORM_Validation_Exception $e)

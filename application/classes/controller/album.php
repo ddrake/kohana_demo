@@ -54,7 +54,7 @@ class Controller_Album extends Controller_Auth
 
 	public function action_save()
 	{
-		if ($_POST)
+		if (count($_POST) > 0)
 		{
 			$album = ORM::factory('album',$this->request->post('id'))->values($_POST);
 			try
@@ -83,7 +83,7 @@ class Controller_Album extends Controller_Auth
 		}
 	}
 
-	// Note: this is a GET so not possible to do this from the list?
+	// Note: this is a GET (not REST-ful, but only logged-in users can execute, so I don't have a problem)
 	public function action_delete($id)
  	{
 		$album = ORM::factory('album',$id);
