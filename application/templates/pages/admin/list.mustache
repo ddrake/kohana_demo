@@ -1,11 +1,15 @@
-    {{%DOT-NOTATION}}
-    <div id="container">
+{{%DOT-NOTATION}}
+<div id="wrap-admin">
+  <div id="header"><h1>Kohana Demo</h1></div>
+  <div id="nav">
       <img src="assets/images/add.png" alt = "Add Button" />
       <span class="top-link"><a href="{{links.user_add}}">Add new User</a></span>
       <span id="user-info">Current User: {{{logged_in_user}}}</span>
       <span class="top-link"><a href="{{links.user_logout}}">Log Out</a></span>
       <span class="top-link"><a href="{{links.user_profile}}">Edit Profile</a></span>
-      <span class="top-link"><a href="{{links.album_list}}">Albums</a></span>
+      <span class="top-link"><a href="{{links.album_list}}">Back to Album List</a></span>
+  </div>
+  <div id="full">
       <table class="list" cellspacing="0">
       <tr>
         <td colspan="5" class="list_title">{{list_title}}</td>
@@ -25,4 +29,8 @@
       </tr>
       {{/users}}
       </table>
-    </div>
+  </div>
+  <div id="footer">
+    Powered by <a href="http://kohanaframework.org/">Kohana</a>
+  </div>
+</div>

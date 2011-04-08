@@ -7,12 +7,18 @@ html, body {
   background: #E3E0D1;
 }
 #wrap {
-  width:810px;
+    width:810px;
+}
+#wrap-admin {
+    width:600px;
+}
+
+#wrap, #wrap-admin {
   margin:0 auto;
   background:#ddd;
   border: 1px solid #888;
-}
 
+}
 #header {
   padding: 5px 10px;
   background: #eee;
@@ -29,6 +35,11 @@ html, body {
   width: 510px;
   padding: 10px;
   border-right: 1px solid #fff;
+}
+
+#full {
+  width: 510px;
+  padding: 10px;
 }
 
 #details {
