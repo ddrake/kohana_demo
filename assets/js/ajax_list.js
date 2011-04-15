@@ -2,7 +2,7 @@ $.ajaxSetup ({
   cache: false,
   dataType: "html"
 });
-var ajax_load = "<img src='img/load.gif' alt='loading...' />";
+var ajax_load = "<img src='assets/images/load.gif' alt='loading...' />";
 
 $('#album_list tr').live('click', function(e) {
   this.blur();
