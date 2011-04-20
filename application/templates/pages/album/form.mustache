@@ -25,6 +25,6 @@
 
       <button type="submit">Save Album</button>
 
-    <input type="hidden" name="id" value="{{album.id}}" />
+    {{#album.id}}<input type="hidden" name="id" value="{{album.id}}" />{{/album.id}}
   </form>
 </div>

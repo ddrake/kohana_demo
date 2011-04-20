@@ -34,7 +34,7 @@
 
     <button type="submit">Save User</button>
 
-    <input type="hidden" name="id" value="{{user.id}}" />
+    {{#user.id}}<input type="hidden" name="id" value="{{user.id}}" />{{/user.id}}
   </form>
 
 </div>
