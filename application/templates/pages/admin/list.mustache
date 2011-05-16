@@ -4,7 +4,7 @@
   <div id="nav">
       <img src="assets/images/add.png" alt = "Add Button" />
       <span class="top-link"><a href="{{links.user_add}}">Add new User</a></span>
-      <span id="user-info">Current User: {{{logged_in_user}}}</span>
+      <span id="user-info">Current User: {{logged_in_user}}</span>
       <span class="top-link"><a href="{{links.user_logout}}">Log Out</a></span>
       <span class="top-link"><a href="{{links.user_profile}}">Edit Profile</a></span>
       <span class="top-link"><a href="{{links.album_list}}">Back to Album List</a></span>
@@ -21,8 +21,8 @@
       </tr>
       {{#users}}
       <tr>
-        <td class='item'>{{{username}}}</td>
-        <td class='item'>{{{email}}}</td>
+        <td class='item'>{{username}}</td>
+        <td class='item'>{{email}}</td>
         <td class='item'>{{is_admin}}</td>
         <td class='item'><a href="{{delete_link}}"><img src="assets/images/delete.png" alt="Delete Button" /></a></td>
         <td class='item'><a href="{{edit_link}}"><img src="assets/images/edit.png" alt="Edit Button" /></a></td>

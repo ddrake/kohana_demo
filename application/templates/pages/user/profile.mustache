@@ -7,19 +7,19 @@
     <p>
       <label>Email Address</label>
       <input type="text" name="email" value="{{user.email}}" class="first_field" /><br />
-      {{#errors}}{{#name}}<p class="error">{{{name}}}</p>{{/name}}{{/errors}}
+      {{#errors}}{{#name}}<p class="error">{{name}}</p>{{/name}}{{/errors}}
     </p>
 
     <p>
       <label>Password (leave blank to keep current)</label>
       <input type="password" name="password" value="" /><br />
-      {{#errors}}{{#password}}<p class="error">{{{password}}}</p>{{/password}}{{/errors}}
+      {{#errors}}{{#password}}<p class="error">{{password}}</p>{{/password}}{{/errors}}
     </p>
 
     <p>
       <label>Confirm Password</label>
       <input type="password" name="password_confirm" value="" /><br />
-      {{#errors}}{{#password_confirm}}<p class="error">{{{password_confirm}}}</p>{{/password_confirm}}{{/errors}}
+      {{#errors}}{{#password_confirm}}<p class="error">{{password_confirm}}</p>{{/password_confirm}}{{/errors}}
     </p>
 
       <button type="submit">Update Profile</button>

@@ -10,7 +10,7 @@ class Model_Album extends ORM
       'name' => array(
         // Uses Valid::not_empty($value);
         array('not_empty'),
-        // Uses Valid::max_length($value, 60);
+        // Uses Valid::max_length($value, 80);
         array('max_length',array(':value', 80)),
       ),
       'artist' => array(
@@ -24,11 +24,9 @@ class Model_Album extends ORM
   {
     return array(
       'name' => array(
-        array('HTML::chars', array(':value')),
         array('trim', array(':value')),
       ),
       'artist' => array(
-        array('HTML::chars', array(':value')),
         array('trim', array(':value')),
       ),
     );

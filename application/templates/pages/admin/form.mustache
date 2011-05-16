@@ -6,13 +6,13 @@
     <p>
       <label>User Name</label>
       <input type="text" name="username" value="{{user.username}}" class="first_field" /><br />
-      {{#errors}}{{#username}}<p class="error">{{{username}}}</p>{{/username}}{{/errors}}
+      {{#errors}}{{#username}}<p class="error">{{username}}</p>{{/username}}{{/errors}}
     </p>
 
     <p>
       <label>Email</label>
       <input type="text" name="email" value="{{user.email}}" /><br />
-      {{#errors}}{{#email}}<p class="error">{{{email}}}</p>{{/email}}{{/errors}}
+      {{#errors}}{{#email}}<p class="error">{{email}}</p>{{/email}}{{/errors}}
     </p>
 
     <p class="cb-container">
@@ -23,13 +23,13 @@
     <p>
       <label>Password{{extra_password_label}}</label>
       <input type="password" name="password" value="" /><br />
-      {{#errors}}{{#password}}<p class="error">{{{password}}}</p>{{/password}}{{/errors}}
+      {{#errors}}{{#password}}<p class="error">{{password}}</p>{{/password}}{{/errors}}
     </p>
 
     <p>
       <label>Confirm Password (Don't copy/paste!)</label>
       <input type="password" name="password_confirm" value="" /><br />
-      {{#errors}}{{#password_confirm}}<p class="error">{{{password_confirm}}}</p>{{/password_confirm}}{{/errors}}
+      {{#errors}}{{#password_confirm}}<p class="error">{{password_confirm}}</p>{{/password_confirm}}{{/errors}}
     </p>
 
     <button type="submit">Save User</button>
