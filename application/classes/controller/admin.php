@@ -51,6 +51,9 @@ class Controller_Admin extends Controller_Auth
 		$this->response->body($view);
 	}
 
+	// Note: If the user provides a password that matches the original and no other data is changed,
+	// the 'changed' flag will not be set, so the validation to see if password and password_confirm 
+	// match will not be executed.
 	public function action_save()
 	{
 		if (count($_POST) > 0)
@@ -79,16 +82,12 @@ class Controller_Admin extends Controller_Auth
 					$user->remove('roles', $admin_role);
 				}
 
-				$user->save();
 				EmailHelper::notify($user, $this->request->post('password'));
 				$this->redirect_to_list();
 			}
 			catch (ORM_Validation_Exception $e)
 			{
-				// todo: specify a real messages file here...
-				// external errors are still in a sub-array, so we have to flatten
-				// also the message is wrong  - bug #3896
-				$errors = Arr::flatten($e->errors('hack'));
+				$errors = $e->errors('models');
 			}
 			if ($user->id == null)
 			{
