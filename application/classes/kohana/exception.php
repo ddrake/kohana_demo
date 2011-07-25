@@ -15,6 +15,7 @@ class Kohana_Exception extends Kohana_Kohana_Exception {
 
                 $attributes = array
                 (
+					'controller' => 'error',
                     'action'  => 500,
                     'message' => rawurlencode($e->getMessage())
                 );

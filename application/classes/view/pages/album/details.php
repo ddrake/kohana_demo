@@ -41,7 +41,7 @@ class View_Pages_Album_Details extends Kostache_Layout {
 	public function links()
 	{
 		return array(
-			'album_list' => Route::get('normal')->uri(array('controller'=>'album')),
+			'album_list' => Route::get('default')->uri(array('controller'=>'album')),
 		);
 	}
 }

@@ -16,7 +16,7 @@ class View_Pages_User_Login extends Kostache_Layout {
 
 	public function links()
 	{
-		$route = Route::get('normal');
+		$route = Route::get('default');
 		return array(
 			'save' => $route->uri(array('controller'=>'user', 'action'=>'login')),
 		);

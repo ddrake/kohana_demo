@@ -113,7 +113,7 @@ class Controller_User extends Controller_Auth {
 	{
 		// Redirect the user to the list
 		// specify the controller in case later we change the default controller for the route.
-		$uri = Route::get('normal')->uri(array('controller'=>'album'));
+		$uri = Route::get('default')->uri(array('controller'=>'album'));
 		$this->request->redirect($uri);
 	}
 

@@ -110,28 +110,22 @@ Kohana::modules(array(
 	'unittest'      => MODPATH.'unittest',   // Unit testing
 	'userguide'     => MODPATH.'userguide',  // User guide and API documentation
 	'kostache'      => MODPATH.'kostache',      // Kostache logic-less view
-	//'email'         => MODPATH.'email',      // Swiftmailer email
+	'email'         => MODPATH.'email',      // Swiftmailer email
 ));
 
 /**
- * Set the routes. Each route must have a minimum of a name, a URI and a set of
- * defaults for the URI.
+ * Set the routes. Each route must have a name and may specify a URI callback string and/or a regex array.
+ * Defaults may be optionally be set.
  */
 
-Route::set('default', '(<controller>(/<action>(/<id>)))')
+
+// Only match if the controller is 'error' and an integer action is specified.  An optional unconstrained message may follow.
+Route::set('error', '<controller>/<action>(/<message>)', array('controller' => 'error', 'action' => '[0-9]++', 'message' => '.+'));
+
+// Only match if a controller is specified.  If an id is optionally specified, it must be an integer
+Route::set('default', '(<controller>(/<action>(/<id>)))', array('id' => '[0-9]++'))
 	->defaults(array(
-		'controller' => 'album',
-		'action'     => 'index',
+	'controller' => 'album',
+	'action' => 'index',
 	));
 
-Route::set('normal', '(<controller>(/<action>(/<id>)))', array('id' => '[0-9]++'))
-	->defaults(array(
-		'controller' => 'album',
-		'action'     => 'index',
-		'id'         => NULL,
-	));
-
-Route::set('error', 'error/<action>(/<message>)', array('action' => '[0-9]++', 'message' => '.+'))
-	->defaults(array(
-		'controller' => 'error'
-	));

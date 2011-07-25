@@ -12,7 +12,7 @@ class Controller_Admin extends Controller_Auth
 	}
 	private function redirect_to_noaccess()
 	{
-		$uri = Route::get('normal')->uri(array('controller'=>'user','action'=>'noaccess'));
+		$uri = Route::get('default')->uri(array('controller'=>'user','action'=>'noaccess'));
 		$this->request->redirect($uri);
 	}
 
@@ -28,9 +28,14 @@ class Controller_Admin extends Controller_Auth
 		$this->show_add_form($user);
  	}
 
- 	public function action_edit($id)
+ 	public function action_edit()
  	{
+		$id = $this->request->param('id');
 		$user = ORM::factory('user', $id);
+		if (! $user->loaded())
+		{
+			$this->redirect_to_list();
+		}
 		$this->show_edit_form($user);
  	}
 
@@ -105,9 +110,14 @@ class Controller_Admin extends Controller_Auth
 	}
 
 	// todo: this should be a POST not a GET -- possible to do this from the list?
-	public function action_delete($id)
+	public function action_delete()
  	{
-		$user = ORM::factory('user',$id);
+		$id = $this->request->param('id');
+		$user = ORM::factory('user', $id);
+		if (! $user->loaded())
+		{
+			$this->redirect_to_list();
+		}
 		EmailHelper::notify($user);
 		$user->delete();
 		$this->redirect_to_list();
@@ -116,7 +126,7 @@ class Controller_Admin extends Controller_Auth
 	private function redirect_to_list()
 	{
 		// Redirect the user to the list
-		$uri = Route::get('normal')->uri(array('controller'=>'admin'));
+		$uri = Route::get('default')->uri(array('controller'=>'admin'));
 		$this->request->redirect($uri);
 	}
 

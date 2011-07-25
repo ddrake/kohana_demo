@@ -13,7 +13,7 @@ class Controller_Album extends Controller_Auth
 	);
 
 	protected function login_required() {
-		$uri = Route::get('normal')->uri(array('controller'=>'user', 'action'=>'login'));
+		$uri = Route::get('default')->uri(array('controller'=>'user', 'action'=>'login'));
 		$this->request->redirect($uri);
 	}
 
@@ -29,9 +29,14 @@ class Controller_Album extends Controller_Auth
 		$this->show_add_form($album);
  	}
 
- 	public function action_edit($id)
+ 	public function action_edit()
  	{
+		$id = $this->request->param('id');
 		$album = ORM::factory('album', $id);
+		if (! $album->loaded())
+		{
+			$this->redirect_to_list();
+		}
 		$this->show_edit_form($album);
  	}
 
@@ -84,13 +89,18 @@ class Controller_Album extends Controller_Auth
 	}
 
 	// Note: this is a GET (not REST-ful, but only logged-in users can execute, so I don't have a problem)
-	public function action_delete($id)
+	public function action_delete()
  	{
-		$album = ORM::factory('album',$id);
+		$id = $this->request->param('id');
+		$album = ORM::factory('album', $id);
+		if (! $album->loaded())
+		{
+			$this->redirect_to_list();
+		}
 		$album->delete();
 		$this->delete_album_fragment($album->id);
 		$this->redirect_to_list();
- 	}
+	}
 
 	public function action_details($id)
 	{
@@ -139,7 +149,7 @@ class Controller_Album extends Controller_Auth
 	// Redirect the user to the list
 	private function redirect_to_list()
 	{
-		$uri = Route::get('normal')->uri(array('controller'=>'album'));
+		$uri = Route::get('default')->uri(array('controller'=>'album'));
 		$this->request->redirect($uri);
 	}
 

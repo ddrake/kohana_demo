@@ -17,11 +17,11 @@ class View_Pages_Admin_List extends Kostache_Layout {
 	public function links()
 	{
 		return array(
-			'user_add' => Route::get('normal')->uri(array('controller'=>'admin', 'action'=>'add')),
-			'user_logout' => Route::get('normal')->uri(array('controller'=>'user', 'action'=>'logout')),
-			'user_login' => Route::get('normal')->uri(array('controller'=>'user', 'action'=>'login')),
-			'user_profile' => Route::get('normal')->uri(array('controller'=>'user')),
-			'album_list' => Route::get('normal')->uri(array('controller'=>'album')),
+			'user_add' => Route::get('default')->uri(array('controller'=>'admin', 'action'=>'add')),
+			'user_logout' => Route::get('default')->uri(array('controller'=>'user', 'action'=>'logout')),
+			'user_login' => Route::get('default')->uri(array('controller'=>'user', 'action'=>'login')),
+			'user_profile' => Route::get('default')->uri(array('controller'=>'user')),
+			'album_list' => Route::get('default')->uri(array('controller'=>'album')),
 		);
 	}
 
@@ -30,7 +30,7 @@ class View_Pages_Admin_List extends Kostache_Layout {
 		$cur_admin = Auth::instance()->get_user();
 		$users = array();
 		$admin_role = ORM::factory('role',array('name' => 'admin'));
-		$route = Route::get('normal');
+		$route = Route::get('default');
 		foreach(ORM::factory('user')->order_by('username','asc')->find_all() as $user)
 		{
 			if ($user->id === $cur_admin->id) continue; // don't show the current user -- they shouldn't update this way (or delete self).
