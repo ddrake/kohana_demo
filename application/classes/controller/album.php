@@ -102,27 +102,29 @@ class Controller_Album extends Controller_Auth
 		$this->redirect_to_list();
 	}
 
-	public function action_details($id)
+	public function action_details()
 	{
+		$id = $this->request->param('id');
+		$album = ORM::factory('album', $id);
+		if (! $album->loaded())
+		{
+			$this->redirect_to_list();
+		}
 		$default_msg = "<h3>click a row to view album details...</h3>";
 		$error_msg = "<h3>couldn't find info for that album...</h3>";
-		if ((int)$id > 0)
+		if ( ! Fragment::load("album_{$id}", Date::DAY * 7))
 		{
-			if ( ! Fragment::load("album_{$id}", Date::DAY * 7))
+			try
 			{
-				$album = ORM::factory('album',$id);
-				try
-				{
-					$config = Kohana::config('lastfm');
-					$details = simplexml_load_file("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key={$config['api_key']}&artist={$album->artist}&album={$album->name}");
-					$view = new View_Pages_Album_Details;
-					$view->set('details',$details);
-					echo $view;
-					Fragment::save();
-				}
-				catch (Exception $e) {
-					echo $error_msg;
-				}
+				$config = Kohana::$config->load('lastfm');
+				$details = simplexml_load_file("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key={$config['api_key']}&artist={$album->artist}&album={$album->name}");
+				$view = new View_Pages_Album_Details;
+				$view->set('details',$details);
+				echo $view;
+				Fragment::save();
+			}
+			catch (Exception $e) {
+				echo $error_msg;
 			}
 		}
 		else {

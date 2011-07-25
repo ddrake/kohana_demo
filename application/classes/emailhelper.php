@@ -18,7 +18,7 @@ class EmailHelper {
 			}
 			try
 			{
-				$config = Kohana::config('email');
+				$config = Kohana::$config->load('email');
 				$to = $config['default_to'];
 				$from = $config['default_from'];
 				$email = Email::factory('Principal User Changed at Kohana Demo Site',$msg)
