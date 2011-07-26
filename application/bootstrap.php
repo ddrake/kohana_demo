@@ -106,9 +106,9 @@ Kohana::modules(array(
 	'database'      => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
 	'orm'           => MODPATH.'orm',        // Object Relationship Mapping
-	'automodeler'   => MODPATH.'automodeler',        // Object Relationship Mapping
-	'unittest'      => MODPATH.'unittest',   // Unit testing
-	'userguide'     => MODPATH.'userguide',  // User guide and API documentation
+	//'automodeler'   => MODPATH.'automodeler',        // Object Relationship Mapping
+	//'unittest'      => MODPATH.'unittest',   // Unit testing
+	//'userguide'     => MODPATH.'userguide',  // User guide and API documentation
 	'kostache'      => MODPATH.'kostache',      // Kostache logic-less view
 	'email'         => MODPATH.'email',      // Swiftmailer email
 ));
