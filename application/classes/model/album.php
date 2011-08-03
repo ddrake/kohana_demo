@@ -19,7 +19,14 @@ class Model_Album extends ORM
       ),
     );
   }
-
+	public function labels()
+	{
+		return array(
+			'name' => 'Album name',
+			'artist' => 'Artist',
+			'genre_id' => 'Genre',
+		);
+	}
   public function filters()
   {
     return array(

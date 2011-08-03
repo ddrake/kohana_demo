@@ -10,9 +10,15 @@
 [submodule "modules/orm"]
 	path = modules/orm
 	url = git://github.com/kohana/orm.git
-[submodule "modules/email"]
-	path = modules/email
-	url = git://github.com/shadowhand/email.git
 [submodule "modules/kostache"]
 	path = modules/kostache
 	url = git://github.com/zombor/KOstache.git
+[submodule "modules/pagination"]
+	path = modules/pagination
+	url = git://github.com/kohana/pagination.git
+[submodule "modules/kostache-pagination-helper"]
+	path = modules/kostache-pagination-helper
+	url = git://github.com/czukowski/kostache-pagination-helper.git
+[submodule "modules/email"]
+	path = modules/email
+	url = git://github.com/shadowhand/email.git

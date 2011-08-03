@@ -22,7 +22,7 @@ class Controller_Album extends Controller_Auth
 		$view = new View_Pages_Album_List;
 		$this->response->body($view); // . View::factory('profiler/stats');
  	}
-
+	
  	public function action_add()
  	{
 		$album = ORM::factory('album');
@@ -70,8 +70,7 @@ class Controller_Album extends Controller_Auth
 			}
 			catch (ORM_Validation_Exception $e)
 			{
-				// todo: specify a real messages file here...
-				$errors = Arr::flatten($e->errors('hack'));
+				$errors = $e->errors('models');
 			}
 			if ($album->id == null)
 			{
@@ -114,6 +113,7 @@ class Controller_Album extends Controller_Auth
 		$error_msg = "<h3>couldn't find info for that album...</h3>";
 		if ( ! Fragment::load("album_{$id}", Date::DAY * 7))
 		{
+			$album = ORM::factory('album',$id);
 			try
 			{
 				$config = Kohana::$config->load('lastfm');
@@ -143,7 +143,6 @@ class Controller_Album extends Controller_Auth
 		try
 		{
 			Fragment::delete("album_{$id}");
-			echo Debug::vars('just deleted fragment');
 		}
 		catch (Exception $e) {}
 	}
@@ -151,7 +150,9 @@ class Controller_Album extends Controller_Auth
 	// Redirect the user to the list
 	private function redirect_to_list()
 	{
-		$uri = Route::get('default')->uri(array('controller'=>'album'));
+		$session = Session::instance();
+		$query = $session->get('album_list');
+		$uri = Route::get('default')->uri(array('controller'=>'album', 'action'=>'index')) . URL::query($query);
 		$this->request->redirect($uri);
 	}
 

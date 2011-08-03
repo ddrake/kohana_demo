@@ -1,40 +1,57 @@
 {{%DOT-NOTATION}}
 <div id="wrap">
-  <div id="header"><h1>Kohana Demo</h1></div>
-  <div id="nav">
-      <img src="assets/images/add.png" alt = "Add Button" />
-      <span class="top-link"><a href="{{links.album_add}}">Add new album</a></span>
-      {{#logged_in_user}}<span id="user-info">Current User: {{{logged_in_user}}}</span>
-      <span class="top-link"><a href="{{links.user_logout}}">Log Out</a></span>
-      <span class="top-link"><a href="{{links.user_profile}}">Edit Profile</a></span>{{/logged_in_user}}
-      {{^logged_in_user}}<span class="top-link"><a href="{{links.user_login}}">Log In</a></span>{{/logged_in_user}}
-      {{#user_is_admin}}<span class="top-link"><a href="{{links.admin_list}}">Administer Users</a></span>{{/user_is_admin}}
-  </div>
-  <div id="main">
-      <table id="album_list" class="list" cellspacing="0">
-      <tr id="-1">
-        <td colspan="6" class="list_title">{{list_title}}</td>
-      </tr>
-      <tr id="0">
-        <td class="headers">Artist</td>
-        <td class="headers">Album name</td>
-        <td colspan='4' class="headers">Genre</td>
-      </tr>
-      {{#albums}}
-      <tr id="{{{id}}}">
-        <td class='item'>{{artist}}</td>
-        <td class='item'>{{name}}</td>
-        <td class='item'>{{genre_name}}</td>
-        <td class='item'><a href="{{edit_link}}"><img src="assets/images/edit.png" alt="Edit Button" /></a></td>
-        <td class='item'><a href="{{delete_link}}"><img src="assets/images/delete.png" alt="Delete Button" /></a></td>
-      </tr>
-      {{/albums}}
-      </table>
-  </div>
-  <div id="details">
-    <h3>click a row to view album details...</h3>
-  </div>
-  <div id="footer">
-    Powered by <a href="http://kohanaframework.org/">Kohana</a>
-  </div>
+	<div id="header"><h1>Kohana Demo</h1></div>
+	<div id="nav">
+		<img src="assets/images/add.png" alt = "Add Button" />
+		<span class="top-link"><a href="{{links.album_add}}">Add new album</a></span>
+		{{#logged_in_user}}<span id="user-info">Current User: {{{logged_in_user}}}</span>
+		<span class="top-link"><a href="{{links.user_logout}}">Log Out</a></span>
+		<span class="top-link"><a href="{{links.user_profile}}">Edit Profile</a></span>{{/logged_in_user}}
+		{{^logged_in_user}}<span class="top-link"><a href="{{links.user_login}}">Log In</a></span>{{/logged_in_user}}
+		{{#user_is_admin}}<span class="top-link"><a href="{{links.admin_list}}">Administer Users</a></span>{{/user_is_admin}}
+	</div>
+	<div id="main">
+		<table id="album_list" class="tablesorter" cellspacing="0">
+			<thead>
+			<tr id="title">
+				<th colspan="6" class="list_title">{{list_title}}</th>
+			</tr>
+			<tr id="sort-heads">
+				<th id="sc-albums:artist" class="header sort-head {{sort.albums:artist}}">Artist</th>
+				<th id="sc-albums:name" class="header sort-head {{sort.albums:name}}">Album name</th>
+				<th id="sc-genre:name" class="header sort-head {{sort.genre:name}}">Genre</th>
+				<th colspan="2">Action</th>
+			</tr>
+			<tr id="filter-heads">
+				<th class="filter-head"><input id="fc-albums:artist" value="{{artist_filter}}" /></th>
+				<th class="filter-head"><input id="fc-albums:name" value="{{name_filter}}" /></th>
+				<th class="filter-head">
+					<select id="fc-albums:genre_id">
+					{{#genre_list_filter}}<option value="{{id}}" {{#selected}}SELECTED{{/selected}} >{{name}}</option>{{/genre_list_filter}}
+					</select>
+				</th>
+				<th><a href="#" id="refresh" title="Apply the current filters"><img src="assets/images/refresh.png" alt="Refresh Button" /></a></th>
+				<th><a href="#" id="clear-filters" title="Clear all filters"><img src="assets/images/delete.png" alt="Delete Button" /></a></th>
+			</tr>
+			</thead>
+			<tbody>
+			{{#albums}}
+			<tr id="{{{id}}}" class="data {{#odd}}odd{{/odd}}{{^odd}}even{{/odd}}">
+				<td class="item">{{artist}}</td>
+				<td class="item">{{name}}</td>
+				<td class="item">{{genre_name}}</td>
+				<td class="item"><a href="{{edit_link}}" title="Edit this album"><img src="assets/images/edit.png" alt="Edit Button" /></a></td>
+				<td class="item"><a href="{{delete_link}}" title="Delete this album"><img src="assets/images/delete.png" alt="Delete Button" /></a></td>
+			</tr>
+			{{/albums}}
+			</tbody>
+		</table>
+		{{#pagination}}{{>pagination}}{{/pagination}}
+	</div>
+	<div id="details">
+		<h3>click a row to view album details...</h3>
+	</div>
+	<div id="footer">
+		Powered by <a href="http://kohanaframework.org/">Kohana</a>
+	</div>
 </div>

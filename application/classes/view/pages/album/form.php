@@ -29,10 +29,8 @@ class View_Pages_Album_Form extends Kostache_Layout {
 
 	public function genre_list()
 	{
-		$genre_model = new Model_Genre;
-		// FYI: example of how to combine db functions with ORM... NICE!
-		//$db_genres_list  = $genre_model->where('name', '<', 'F')->find_all();
 		$genre_list = array();
+		$genre_model = ORM::Factory('genre');
 		foreach ($genre_model->find_all()->as_array() as $genre)
 		{
 			$genre = $genre->as_array();
