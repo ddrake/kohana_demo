@@ -17,16 +17,16 @@
 				<th colspan="6" class="list_title">{{list_title}}</th>
 			</tr>
 			<tr id="sort-heads">
-				<th id="sc-albums:artist" class="header sort-head {{sort.albums:artist}}">Artist</th>
-				<th id="sc-albums:name" class="header sort-head {{sort.albums:name}}">Album name</th>
+				<th id="sc-album:artist" class="header sort-head {{sort.album:artist}}">Artist</th>
+				<th id="sc-album:name" class="header sort-head {{sort.album:name}}">Album name</th>
 				<th id="sc-genre:name" class="header sort-head {{sort.genre:name}}">Genre</th>
 				<th colspan="2">Action</th>
 			</tr>
 			<tr id="filter-heads">
-				<th class="filter-head"><input id="fc-albums:artist" value="{{artist_filter}}" /></th>
-				<th class="filter-head"><input id="fc-albums:name" value="{{name_filter}}" /></th>
+				<th class="filter-head"><input id="fc-album:artist" value="{{artist_filter}}" /></th>
+				<th class="filter-head"><input id="fc-album:name" value="{{name_filter}}" /></th>
 				<th class="filter-head">
-					<select id="fc-albums:genre_id">
+					<select id="fc-album:genre_id">
 					{{#genre_list_filter}}<option value="{{id}}" {{#selected}}SELECTED{{/selected}} >{{name}}</option>{{/genre_list_filter}}
 					</select>
 				</th>

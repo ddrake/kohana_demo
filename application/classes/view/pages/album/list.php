@@ -39,7 +39,7 @@ class View_Pages_Album_List extends Kostache_Layout {
 	{
 		$genre_list = array(array('id'=>NULL, 'name'=>'<No Selection>'));
 		$genre_model = ORM::Factory('genre');
-		$val = Request::current()->query('fc-albums:genre_id');
+		$val = Request::current()->query('fc-album:genre_id');
 		if (!empty($val))
 		{
 			list($op,$val) = explode('|',$val,2);
@@ -54,7 +54,7 @@ class View_Pages_Album_List extends Kostache_Layout {
 	}
 	public function name_filter()
 	{
-		$val = Request::current()->query('fc-albums:name');
+		$val = Request::current()->query('fc-album:name');
 		if (!empty($val))
 		{
 			list($op,$val) = explode('|',$val,2);
@@ -63,7 +63,7 @@ class View_Pages_Album_List extends Kostache_Layout {
 	}
 	public function artist_filter()
 	{
-		$val = Request::current()->query('fc-albums:artist');
+		$val = Request::current()->query('fc-album:artist');
 		if (!empty($val))
 		{
 			list($op,$val) = explode('|',$val,2);
