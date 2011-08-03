@@ -111,6 +111,8 @@ Kohana::modules(array(
 	//'userguide'     => MODPATH.'userguide',  // User guide and API documentation
 	'kostache'      => MODPATH.'kostache',      // Kostache logic-less view
 	//'email'          => MODPATH.'email',      // Swifmailer email module
+	'pagination'      => MODPATH.'pagination',  //Pagination
+	'pastiche'      => MODPATH.'kostache-pagination-helper',  //Kostache pagination helper
 ));
 
 /**
