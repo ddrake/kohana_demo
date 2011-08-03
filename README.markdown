@@ -26,6 +26,7 @@ Features
 - Email notification using Swiftmailer (this requires an email server, but if you don't have one, it's OK -- the application won't break)
 - Fetching of album information from LastFM.com (cached using Fragment) (now AJAX-ified)
 - Album listing as XML via uri: album/listxml
+- Filtering, sorting and pagination performed server-side.
 
 Installation
 ------------
