@@ -10,10 +10,10 @@
     <base href="{{base}}" />
     <link type="text/css" href="assets/css/reset.css" rel="stylesheet" />
     <link type="text/css" href="assets/css/style.css" rel="stylesheet" />
-    {{%IMPLICIT-ITERATOR}}{{#styles}}
+    {{#styles}}
     <link type="text/css" href="{{.}}" rel="stylesheet" />
     {{/styles}}
-    {{%IMPLICIT-ITERATOR}}{{#scripts}}
+    {{#scripts}}
     <script type="text/javascript" src="{{.}}"></script>
     {{/scripts}}
   </head>
