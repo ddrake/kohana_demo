@@ -19,3 +19,6 @@
 [submodule "modules/email"]
 	path = modules/email
 	url = git://github.com/shadowhand/email.git
+[submodule "modules/kostache"]
+	path = modules/kostache
+	url = git://github.com/zombor/KOstache.git
