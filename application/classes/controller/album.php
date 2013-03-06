@@ -120,10 +120,11 @@ class Controller_Album extends Controller_Auth
 				$details = simplexml_load_file("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key={$config['api_key']}&artist={$album->artist}&album={$album->name}");
 				$view = new View_Pages_Album_Details;
 				$view->set('details',$details);
-				echo $view;
+				$this->response->body($view);
 				Fragment::save();
 			}
 			catch (Exception $e) {
+				Log::instance()->add(Log::ERROR, $e);
 				echo $error_msg;
 			}
 		}
